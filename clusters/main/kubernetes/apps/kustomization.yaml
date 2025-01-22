@@ -2,3 +2,19 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
+  - cloudflareddns/ks.yaml
+  - flaresolverr/ks.yaml
+  - generic-device-plugin/ks.yaml
+  - jellyfin/ks.yaml
+  - jellyseerr/ks.yaml
+  - lidarr/ks.yaml
+  - netbootxyz/ks.yaml
+  - prowlarr/ks.yaml
+  - qbitmanage/ks.yaml
+  - qbittorrent-v2/ks.yaml
+  - radarr/ks.yaml
+  - readarr/ks.yaml
+  - sonarr/ks.yaml
+  - steam-headless/ks.yaml
+  - syncthing/ks.yaml
+  - wg-easy/ks.yaml
