@@ -70,11 +70,11 @@ spec:
         resources: {}
         securityContext:
             container:
-                UMASK: "0022"
+                UMASK: "0000"
                 privileged: true
                 readOnlyRootFilesystem: false
-                runAsGroup: 568
-                runAsUser: 568
+                runAsGroup: 0
+                runAsUser: 0
             pod:
                 fsGroupChangePolicy: OnRootMismatch
         service:
