@@ -60,7 +60,7 @@ spec:
                         enabled: true
                       name: cfg
                       src:
-                        enabled: false
+                        enabled: true
                       type: restic
             data-vol:
                 enabled: true

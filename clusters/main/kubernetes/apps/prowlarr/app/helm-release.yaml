@@ -68,7 +68,7 @@ spec:
                         enabled: true
                       name: cfg
                       src:
-                        enabled: false
+                        enabled: true
                       type: restic
         podOptions:
             dnsConfig:
