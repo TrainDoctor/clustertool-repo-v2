@@ -1,13 +1,13 @@
 ## Do not edit between this and DO NOT REMOVE
 creation_rules:
   - path_regex: ^clusters.*kubernetes.*values.ya?ml$
-    age: age1relu8s7u97yn4zs4v78u89zlupahmtf0zqwt0ml3gfvlwl5au4dqp0w20y
+    age: age1grv49vt8y6u7vse4030mgnfylx6c2jw7hlwhqs34nc9n9rpdwefqnr7vjm
     encrypted_regex: "((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))"
   - path_regex: ^clusters.*kubernetes.*\.secret.ya?ml
-    age: age1relu8s7u97yn4zs4v78u89zlupahmtf0zqwt0ml3gfvlwl5au4dqp0w20y
+    age: age1grv49vt8y6u7vse4030mgnfylx6c2jw7hlwhqs34nc9n9rpdwefqnr7vjm
     encrypted_regex: "((?i)(displayname|email|pass|ca|id|bootstraptoken|secretboxencryptionsecret|secrets|secrets|password|cert|secret($|[^N])|key|token|^data$|^stringData))"
   - path_regex: clusterenv.yaml
-    age: age1relu8s7u97yn4zs4v78u89zlupahmtf0zqwt0ml3gfvlwl5au4dqp0w20y
+    age: age1grv49vt8y6u7vse4030mgnfylx6c2jw7hlwhqs34nc9n9rpdwefqnr7vjm
   - path_regex: talsecret.yaml
-    age: age1relu8s7u97yn4zs4v78u89zlupahmtf0zqwt0ml3gfvlwl5au4dqp0w20y
+    age: age1grv49vt8y6u7vse4030mgnfylx6c2jw7hlwhqs34nc9n9rpdwefqnr7vjm
 ## DO NOT REMOVE: Personal setting go under this line
