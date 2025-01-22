@@ -13,4 +13,9 @@ spec:
         kind: HelmRepository
         name: truecharts
         namespace: flux-system
+  values:
+    workload:
+        main:
+          replicas: 3
+          type: Deployment
   releaseName: generic-device-plugin
