@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+if [ -z "$1" ]; then
+  echo "Must specify a commit log"
+  exit 2
+fi
+
+clustertool genconfig
+git add clusters
+clustertool encrypt
+git commit -m "$1"
+git push
+sleep 1
+flux reconcile source git cluster -n flux-system
+# clustertool decrypt

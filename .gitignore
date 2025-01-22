@@ -1,0 +1,15 @@
+*.log
+*clustertool.exe
+*sopssecret*
+^clustertool
+^clustertool*
+^clustertool.exe
+age.agekey
+cloudflare-entries
+clustertool
+clustertool.exe
+misc
+mounts/
+sopssecret*
+sopssecret.yaml
+ssh-public-key.txt
