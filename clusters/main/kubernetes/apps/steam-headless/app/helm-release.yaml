@@ -47,7 +47,7 @@ spec:
                         enabled: false
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
             games:
                 enabled: true
