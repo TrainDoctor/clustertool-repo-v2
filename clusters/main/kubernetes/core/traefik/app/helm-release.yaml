@@ -58,15 +58,15 @@ spec:
           traefik:
             enabled: true
             entrypoints:
-            - websecure
+              - websecure
             # middlewares:
             # - name: traefik-regex
             #   namespace: traefik
             # - name: auth
             #   namespace: traefik
-            # fixedMiddlewares:
-            # - name: chain-basic
-            #   namespace: traefik
+            fixedMiddlewares:
+              - name: chain-basic
+                namespace: traefik
           # certManager:
           #   enabled: true
           #   certificateIssuer: domain-1-le-prod
