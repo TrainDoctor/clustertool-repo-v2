@@ -36,5 +36,42 @@ spec:
       stopAll: false
     defaultCertificate: "domain-0-wildcard"
     service:
+      main:
+        type: ClusterIP
       tcp:
         loadBalancerIP: ${TRAEFIK_IP}
+        type: LoadBalancer
+        externalTrafficPolicy: Local
+        ports:
+          web:
+            enabled: true
+            protocol: http
+            redirectTo: websecure
+          websecure:
+            enabled: true
+            port: 443
+            protocol: https
+    ingress:
+      main:
+        enabled: true
+        integrations:
+          traefik:
+            enabled: true
+            entrypoints:
+            - websecure
+            # middlewares:
+            # - name: traefik-regex
+            #   namespace: traefik
+            # - name: auth
+            #   namespace: traefik
+            # fixedMiddlewares:
+            # - name: chain-basic
+            #   namespace: traefik
+          # certManager:
+          #   enabled: true
+          #   certificateIssuer: domain-1-le-prod
+        hosts:
+          - host: traefik.${DOMAIN_1}
+            paths:
+              - path: /
+                pathType: Prefix
