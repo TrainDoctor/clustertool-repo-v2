@@ -138,3 +138,12 @@ spec:
                                 JELLYFIN_PublishedServerUrl: '{{ $.Values.chartContext.appUrl }}'
                 replicas: 1
                 type: Deployment
+        ingress:
+            main:
+                enabled: true
+                hosts:
+                    - host: jf.${DOMAIN_0}
+                integrations:
+                    certManger:
+                        enabled: false
+                        certificateIssuer: ""
