@@ -51,6 +51,22 @@
                 "type/major",
                 "system-upgrade"
             ]
+        },
+        {
+            "description": [
+                "Block automerge for spegel version major"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "dependencyDashboardApproval": true,
+            "matchPackageNames": [
+                "ghcr.io/spegel-org/helm-charts"
+            ],
+            "labels": [
+                "type/major",
+                "system-upgrade"
+            ]
         }
     ]
 }
