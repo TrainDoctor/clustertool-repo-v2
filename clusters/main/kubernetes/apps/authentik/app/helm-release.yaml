@@ -57,7 +57,7 @@ spec:
                 targetSelector:
                  main:
                    main:
-                    mountPath: /media
+                     mountPath: /media
                  worker:
                    worker:
                      mountPath: /media
@@ -74,10 +74,10 @@ spec:
                 targetSelector:
                 main:
                     main:
-                    mountPath: /templates
+                      mountPath: /templates
                 worker:
                     worker:
-                    mountPath: /templates
+                      mountPath: /templates
                 volsync:
                     - credentials: authentik
                       dest:
@@ -109,7 +109,7 @@ spec:
                 targetSelector:
                 worker:
                     worker:
-                    mountPath: /certs
+                      mountPath: /certs
                 volsync:
                     - credentials: authentik
                       dest:
@@ -123,13 +123,13 @@ spec:
                 targetSelector:
                 main:
                     main:
-                    mountPath: /geoip
+                      mountPath: /geoip
                 worker:
                     worker:
-                    mountPath: /geoip
+                      mountPath: /geoip
                 geoip:
                     geoip:
-                    mountPath: /usr/share/GeoIP
+                      mountPath: /usr/share/GeoIP
                 volsync:
                     - credentials: authentik
                       dest:
