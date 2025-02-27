@@ -22,7 +22,7 @@ spec:
             netshoot:
                 enabled: false
         credentials:
-            qbittorrent:
+            authentik:
                 name: authentik
                 type: s3
                 url: ${VOLSYNC_S3_URL}
