@@ -18,3 +18,4 @@ resources:
   - steam-headless/ks.yaml
   - syncthing/ks.yaml
   - wg-easy/ks.yaml
+  - authentik/ks.yaml
