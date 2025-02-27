@@ -86,23 +86,23 @@ spec:
                       src:
                         enabled: true
                       type: restic
-            blueprints:
-                enabled: true
-                targetSelector:
-                worker:
-                    worker:
-                    # This will automatically change to `/blueprints`
-                    # if `overwriteDefaultBlueprints` is set to `true
-                    # Otherwise it will respect the value specified here
-                    mountPath: /blueprints/custom
-                volsync:
-                    - credentials: authentik
-                      dest:
-                        enabled: true
-                      name: blueprints
-                      src:
-                        enabled: true
-                      type: restic
+            # blueprints:
+            #     enabled: true
+            #     targetSelector:
+            #     worker:
+            #         worker:
+            #         # This will automatically change to `/blueprints`
+            #         # if `overwriteDefaultBlueprints` is set to `true
+            #         # Otherwise it will respect the value specified here
+            #         mountPath: /blueprints/custom
+            #     volsync:
+            #         - credentials: authentik
+            #           dest:
+            #             enabled: true
+            #           name: blueprints
+            #           src:
+            #             enabled: true
+            #           type: restic
             certs:
                 enabled: true
                 mountPath: /certs
