@@ -140,7 +140,7 @@ spec:
                 type: Deployment
         ingress:
             main:
-                enabled: false
+                enabled: true
                 hosts:
                     - host: jf.${DOMAIN_0}
                 integrations:
