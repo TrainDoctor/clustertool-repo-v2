@@ -52,40 +52,40 @@ spec:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
         persistence:
-            media:
-                enabled: true
-                targetSelector:
-                 main:
-                   main:
-                     mountPath: /media
-                 worker:
-                   worker:
-                     mountPath: /media
-                volsync:
-                    - credentials: authentik
-                      dest:
-                        enabled: true
-                      name: media
-                      src:
-                        enabled: true
-                      type: restic
-            templates:
-                enabled: true
-                targetSelector:
-                main:
-                    main:
-                      mountPath: /templates
-                worker:
-                    worker:
-                      mountPath: /templates
-                volsync:
-                    - credentials: authentik
-                      dest:
-                        enabled: true
-                      name: templates
-                      src:
-                        enabled: true
-                      type: restic
+            # media:
+            #     enabled: true
+            #     targetSelector:
+            #      main:
+            #        main:
+            #          mountPath: /media
+            #      worker:
+            #        worker:
+            #          mountPath: /media
+            #     volsync:
+            #         - credentials: authentik
+            #           dest:
+            #             enabled: true
+            #           name: media
+            #           src:
+            #             enabled: true
+            #           type: restic
+            # templates:
+            #     enabled: true
+            #     targetSelector:
+            #     main:
+            #         main:
+            #           mountPath: /templates
+            #     worker:
+            #         worker:
+            #           mountPath: /templates
+            #     volsync:
+            #         - credentials: authentik
+            #           dest:
+            #             enabled: true
+            #           name: templates
+            #           src:
+            #             enabled: true
+            #           type: restic
             # blueprints:
             #     enabled: true
             #     targetSelector:
@@ -103,22 +103,22 @@ spec:
             #           src:
             #             enabled: true
             #           type: restic
-            certs:
-                enabled: true
-                mountPath: /certs
-                targetSelector:
-                worker:
-                    worker:
-                      mountPath: /certs
-                volsync:
-                    - credentials: authentik
-                      dest:
-                        enabled: true
-                      name: certs
-                      src:
-                        enabled: true
-                      type: restic
-            geoip:
+            # certs:
+            #     enabled: true
+            #     mountPath: /certs
+            #     targetSelector:
+            #     worker:
+            #         worker:
+            #           mountPath: /certs
+            #     volsync:
+            #         - credentials: authentik
+            #           dest:
+            #             enabled: true
+            #           name: certs
+            #           src:
+            #             enabled: true
+            #           type: restic
+            # geoip:
                 enabled: true
                 targetSelector:
                 main:
