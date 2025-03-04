@@ -54,6 +54,14 @@ spec:
         persistence:
           media:
             enabled: true
+            volsync:
+                - credentials: authentik
+                  dest:
+                    enabled: true
+                  name: geoip
+                  src:
+                    enabled: true
+                  type: restic
             targetSelector:
               main:
                 main:
@@ -63,6 +71,14 @@ spec:
                   mountPath: /media
           templates:
             enabled: true
+            volsync:
+                - credentials: authentik
+                  dest:
+                    enabled: true
+                  name: geoip
+                  src:
+                    enabled: true
+                  type: restic
             targetSelector:
               main:
                 main:
@@ -72,6 +88,14 @@ spec:
                   mountPath: /templates
           blueprints:
             enabled: true
+            volsync:
+                - credentials: authentik
+                  dest:
+                    enabled: true
+                  name: geoip
+                  src:
+                    enabled: true
+                  type: restic
             targetSelector:
               worker:
                 worker:
@@ -81,6 +105,14 @@ spec:
                   mountPath: /blueprints/custom
           certs:
             enabled: true
+            volsync:
+                - credentials: authentik
+                  dest:
+                    enabled: true
+                  name: geoip
+                  src:
+                    enabled: true
+                  type: restic
             mountPath: /certs
             targetSelector:
               worker:
@@ -88,14 +120,14 @@ spec:
                   mountPath: /certs
           geoip:
             enabled: true
-            # volsync:
-            #     - credentials: authentik
-            #       dest:
-            #         enabled: true
-            #       name: geoip
-            #       src:
-            #         enabled: true
-            #       type: restic
+            volsync:
+                - credentials: authentik
+                  dest:
+                    enabled: true
+                  name: geoip
+                  src:
+                    enabled: true
+                  type: restic
             targetSelector:
               main:
                 main:
