@@ -144,6 +144,11 @@ spec:
                 hosts:
                     - host: jf.${DOMAIN_0}
                 integrations:
+                    # traefik:
+                    #     enabled: true
+                    #     middlewares:
+                    #       - name: auth
+                    #         namespace: traefik
                     certManger:
                         enabled: false
                         certificateIssuer: ""

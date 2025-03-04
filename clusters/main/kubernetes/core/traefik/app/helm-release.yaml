@@ -51,6 +51,20 @@ spec:
             enabled: true
             port: 443
             protocol: https
+    middlewares:
+      forwardAuth:
+        - address: ${AUTH_ADDRESS}
+          authRequestHeaders: []
+          authResponseHeaders:
+          - Remote-User
+          - Remote-Groups
+          - Remote-Name
+          - Remote-Email
+          authResponseHeadersRegex: ''
+          name: auth
+          tls:
+            insecureSkipVerify: false
+          trustForwardHeader: true
     ingress:
       main:
         enabled: true
@@ -60,10 +74,10 @@ spec:
             entrypoints:
               - websecure
             # middlewares:
-            # - name: traefik-regex
-            #   namespace: traefik
-              # - name: auth
-              #   namespace: traefik
+            # # - name: traefik-regex
+            # #   namespace: traefik
+            #   - name: auth
+            #     namespace: traefik
             fixedMiddlewares:
               - name: chain-basic
                 namespace: traefik
