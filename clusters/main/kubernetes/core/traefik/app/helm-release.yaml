@@ -67,8 +67,8 @@ spec:
             fixedMiddlewares:
               - name: chain-basic
                 namespace: traefik
-        # hosts:
-        #   - host: traefik.${DOMAIN_0}
-        #     paths:
-        #       - path: /
-        #         pathType: Prefix
+        hosts:
+          - host: traefik.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
