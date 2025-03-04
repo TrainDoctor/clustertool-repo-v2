@@ -59,11 +59,11 @@ spec:
             enabled: true
             entrypoints:
               - websecure
-            middlewares:
+            # middlewares:
             # - name: traefik-regex
             #   namespace: traefik
-              - name: auth
-                namespace: traefik
+              # - name: auth
+              #   namespace: traefik
             fixedMiddlewares:
               - name: chain-basic
                 namespace: traefik
