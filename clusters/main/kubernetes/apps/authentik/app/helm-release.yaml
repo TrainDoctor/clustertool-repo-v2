@@ -48,9 +48,9 @@ spec:
         #         middlewares:
         #         - name: local
         #           namespace: traefik
-            certManager:
-                enabled: true
-                certificateIssuer: ${CERT_ISSUER}
+          certManager:
+            enabled: true
+            certificateIssuer: ${CERT_ISSUER}
         persistence:
           media:
             enabled: true
@@ -106,7 +106,6 @@ spec:
               geoip:
                 geoip:
                   mountPath: /usr/share/GeoIP
-            
         cnpg:
           main:
             # mode: recovery
