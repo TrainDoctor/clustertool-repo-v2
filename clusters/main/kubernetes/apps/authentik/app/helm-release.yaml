@@ -51,6 +51,93 @@ spec:
             certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
+        persistence:
+            media:
+                enabled: true
+                targetSelector:
+                 main:
+                   main:
+                     mountPath: /media
+                 worker:
+                   worker:
+                     mountPath: /media
+                # volsync:
+                #     - credentials: authentik
+                #       dest:
+                #         enabled: true
+                #       name: media
+                #       src:
+                #         enabled: true
+                #       type: restic
+            templates:
+                enabled: true
+                targetSelector:
+                main:
+                    main:
+                      mountPath: /templates
+                worker:
+                    worker:
+                      mountPath: /templates
+                # volsync:
+                #     - credentials: authentik
+                #       dest:
+                #         enabled: true
+                #       name: templates
+                #       src:
+                #         enabled: true
+                #       type: restic
+            blueprints:
+                enabled: true
+                targetSelector:
+                worker:
+                    worker:
+                    # This will automatically change to `/blueprints`
+                    # if `overwriteDefaultBlueprints` is set to `true
+                    # Otherwise it will respect the value specified here
+                    mountPath: /blueprints/custom
+                # volsync:
+                #     - credentials: authentik
+                #       dest:
+                #         enabled: true
+                #       name: blueprints
+                #       src:
+                #         enabled: true
+                #       type: restic
+            certs:
+                enabled: true
+                mountPath: /certs
+                targetSelector:
+                worker:
+                    worker:
+                      mountPath: /certs
+                # volsync:
+                #     - credentials: authentik
+                #       dest:
+                #         enabled: true
+                #       name: certs
+                #       src:
+                #         enabled: true
+                #       type: restic
+            geoip:
+                enabled: true
+                targetSelector:
+                main:
+                  main:
+                      mountPath: /geoip
+                worker:
+                   worker:
+                      mountPath: /geoip
+                geoip:
+                   geoip:
+                      mountPath: /usr/share/GeoIP
+                # volsync:
+                #     - credentials: authentik
+                #       dest:
+                #         enabled: true
+                #       name: geoip
+                #       src:
+                #         enabled: true
+                #       type: restic
         cnpg:
           main:
             # mode: recovery
