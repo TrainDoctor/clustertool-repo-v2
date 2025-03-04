@@ -119,25 +119,25 @@ spec:
             #             enabled: true
             #           type: restic
             # geoip:
-        #         enabled: true
-        #         targetSelector:
-        #         main:
-        #             main:
-        #               mountPath: /geoip
-        #         worker:
-        #             worker:
-        #               mountPath: /geoip
-        #         geoip:
-        #             geoip:
-        #               mountPath: /usr/share/GeoIP
-        #         volsync:
-        #             - credentials: authentik
-        #               dest:
-        #                 enabled: true
-        #               name: geoip
-        #               src:
-        #                 enabled: true
-        #               type: restic
+            #     enabled: true
+            #     targetSelector:
+            #     main:
+            #       main:
+            #           mountPath: /geoip
+            #     worker:
+            #        worker:
+            #           mountPath: /geoip
+            #     geoip:
+            #        geoip:
+            #           mountPath: /usr/share/GeoIP
+            #     volsync:
+            #         - credentials: authentik
+            #           dest:
+            #             enabled: true
+            #           name: geoip
+            #           src:
+            #             enabled: true
+            #           type: restic
         cnpg:
           main:
             # mode: recovery
