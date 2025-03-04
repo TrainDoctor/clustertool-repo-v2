@@ -39,15 +39,15 @@ spec:
                 paths:
                   - path: /outpost.goauthentik.io
                     pathType: Prefix
-            integrations:
-              traefik:
-                enabled: true
-                middlewares:
-                - name: local
-                  namespace: traefik
-              certManager:
-                enabled: true
-                certificateIssuer: ${CERT_ISSUER}
+            # integrations:
+            #   traefik:
+            #     enabled: true
+            #     middlewares:
+            #     - name: local
+            #       namespace: traefik
+            #   certManager:
+            #     enabled: true
+            #     certificateIssuer: ${CERT_ISSUER}
         persistence:
           media:
             enabled: true
