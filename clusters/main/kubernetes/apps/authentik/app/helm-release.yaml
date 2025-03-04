@@ -154,20 +154,20 @@ spec:
             container:
                 UMASK: "0022"
                 readOnlyRootFilesystem: false
-                runAsGroup: ${MEDIA_GROUP}
-                runAsUser: ${MEDIA_USER}
+                runAsGroup: 1000
+                runAsUser: 1000
             pod:
                 fsGroupChangePolicy: OnRootMismatch
         service:
             main:
                 enabled: true
-                sharedKey: custom-shared-key
-                loadBalancerIP: "${SERVICES_IP}"
+                # sharedKey: custom-shared-key
+                # loadBalancerIP: "${SERVICES_IP}"
                 ports:
                     main:
                       protocol: https
                       port: 10229
-                type: LoadBalancer
+                # type: LoadBalancer
             # Server HTTP
             http:
               enabled: true
