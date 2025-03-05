@@ -53,8 +53,8 @@ spec:
             port: 443
             protocol: https
     middlewares:
-      auth:
         forwardAuth:
+        - name: auth
           address: ${AUTH_ADDRESS}
           authResponseHeaders:
           - authorization
