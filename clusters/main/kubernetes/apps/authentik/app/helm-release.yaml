@@ -164,13 +164,13 @@ spec:
         service:
             main:
                 enabled: true
-                sharedKey: custom-shared-key
-                loadBalancerIP: "${SERVICES_IP}"
+                # sharedKey: custom-shared-key
+                # loadBalancerIP: "${SERVICES_IP}"
                 ports:
                     main:
                       protocol: https
                       port: 10229
-                type: LoadBalancer
+                # type: LoadBalancer
             # Server HTTP
             http:
               enabled: true
@@ -202,7 +202,7 @@ spec:
               ports:
                 radius:
                   enabled: true
-                  protocol: udp
+                  protocol: udpaccess
                   targetSelector: radius
                   port: 1812
             # LDAP
