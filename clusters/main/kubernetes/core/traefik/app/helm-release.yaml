@@ -45,6 +45,7 @@ spec:
         ports:
           web:
             enabled: true
+            port: 80
             protocol: http
             redirectTo: websecure
           websecure:
@@ -56,6 +57,7 @@ spec:
         - address: ${AUTH_ADDRESS}
           authRequestHeaders: []
           authResponseHeaders:
+          - authorization
           - X-authentik-username
           - X-authentik-groups
           - X-authentik-email
@@ -79,12 +81,13 @@ spec:
           traefik:
             enabled: true
             entrypoints:
+              - web
               - websecure
-            middlewares:
+            # middlewares:
             # # - name: traefik-regex
             # #   namespace: traefik
-              - name: auth
-                namespace: traefik
+              # - name: auth
+              #   namespace: traefik
             fixedMiddlewares:
               - name: chain-basic
                 namespace: traefik
