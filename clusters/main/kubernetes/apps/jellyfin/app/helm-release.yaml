@@ -148,6 +148,7 @@ spec:
                         enabled: true
                         middlewares:
                           - name: auth
+                            namespace: traefik
                     certManger:
                         enabled: true
                         certificateIssuer: ${CERT_ISSUER}
