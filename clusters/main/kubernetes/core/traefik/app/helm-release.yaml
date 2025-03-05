@@ -81,9 +81,9 @@ spec:
             entrypoints:
               - web
               - websecure
-            middlewares:
-              - name: forward-auth
-                namespace: traefik
+            # middlewares:
+            #   - name: forward-auth
+            #     namespace: traefik
             # fixedMiddlewares:
             #   - name: chain-basic
             #     namespace: traefik
