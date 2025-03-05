@@ -144,11 +144,13 @@ spec:
                 hosts:
                     - host: jf.${DOMAIN_0}
                 integrations:
-                    traefik:
-                        enabled: true
-                        middlewares:
-                          - name: forward-auth
-                            namespace: traefik
+                  traefik:
+                    enabled: true
+                    # entrypoints:
+                    #   - websecure
+                    middlewares:
+                      - name: auth
+                        namespace: 'traefik'
                     certManger:
                         enabled: true
                         certificateIssuer: ${CERT_ISSUER}

@@ -54,7 +54,7 @@ spec:
             protocol: https
     middlewares:
       forwardAuth:
-        - name: forward-auth
+        - name: auth
           address: ${AUTH_ADDRESS}
           authResponseHeaders:
           - authorization
