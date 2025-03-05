@@ -147,7 +147,7 @@ spec:
                     traefik:
                         enabled: true
                         middlewares:
-                          - name: auth
+                          - name: forward-auth
                             namespace: traefik
                     certManger:
                         enabled: true

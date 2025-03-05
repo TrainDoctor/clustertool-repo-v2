@@ -54,8 +54,8 @@ spec:
             protocol: https
     middlewares:
       forwardAuth:
-        - address: ${AUTH_ADDRESS}
-          authRequestHeaders: []
+        - name: forward-auth
+          address: ${AUTH_ADDRESS}
           authResponseHeaders:
           - authorization
           - X-authentik-username
@@ -69,8 +69,6 @@ spec:
           - X-authentik-meta-provider
           - X-authentik-meta-app
           - X-authentik-meta-version
-          authResponseHeadersRegex: ''
-          name: auth
           tls:
             insecureSkipVerify: false
           trustForwardHeader: true
