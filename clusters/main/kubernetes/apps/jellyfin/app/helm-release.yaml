@@ -140,7 +140,7 @@ spec:
                 type: Deployment
         ingress:
             main:
-                enabled: false
+                enabled: true
                 integrations:
                   traefik:
                     enabled: true
