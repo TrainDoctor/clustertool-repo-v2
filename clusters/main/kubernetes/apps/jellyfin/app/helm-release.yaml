@@ -150,7 +150,7 @@ spec:
                     #   - websecure
                     middlewares:
                       - name: auth
-                        namespace: 'traefik'
+                        namespace: traefik
                     certManger:
                         enabled: true
                         certificateIssuer: ${CERT_ISSUER}
