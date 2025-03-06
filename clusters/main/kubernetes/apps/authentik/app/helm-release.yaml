@@ -22,9 +22,6 @@ spec:
             netshoot:
                 enabled: false
         credentials:
-            email: ${AUTH_INSTALL_EMAIL}
-            password: ${AUTH_INSTALL_PASS}
-            bootstrapToken: "${AUTH_BOOTSTRAP_TOKEN}"
             authentik:
                 name: authentik
                 type: s3
@@ -51,6 +48,10 @@ spec:
             #   certManager:
             #     enabled: true
             #     certificateIssuer: ${CERT_ISSUER}
+        authentik:
+            email: ${AUTH_INSTALL_EMAIL}
+            password: ${AUTH_INSTALL_PASS}
+            bootstrapToken: "${AUTH_BOOTSTRAP_TOKEN}"
         persistence:
           media:
             enabled: true
