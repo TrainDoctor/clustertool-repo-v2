@@ -46,6 +46,7 @@ spec:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
         authentik:
+          credentials:
             email: ${AUTH_INSTALL_EMAIL}
             password: ${AUTH_INSTALL_PASS}
             bootstrapToken: "${AUTH_BOOTSTRAP_TOKEN}"
