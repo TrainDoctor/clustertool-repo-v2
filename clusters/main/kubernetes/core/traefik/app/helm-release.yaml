@@ -69,6 +69,8 @@ spec:
           - X-authentik-meta-provider
           - X-authentik-meta-app
           - X-authentik-meta-version
+          customResponseHeaders:
+          - X-Robots-Tag: "noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex"
           tls:
             insecureSkipVerify: false
           trustForwardHeader: true
@@ -81,9 +83,9 @@ spec:
             entrypoints:
               - web
               - websecure
-            # middlewares:
-            #   - name: forward-auth
-            #     namespace: traefik
+            middlewares:
+              - name: auth
+                namespace: traefik
             # fixedMiddlewares:
             #   - name: chain-basic
             #     namespace: traefik

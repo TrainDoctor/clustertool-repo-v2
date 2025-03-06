@@ -147,8 +147,5 @@ spec:
                     middlewares:
                         - name: auth
                           namespace: traefik
-                    certManger:
-                        enabled: true
-                        certificateIssuer: ${CERT_ISSUER}
                 hosts:
                     - host: jf.${DOMAIN_0}
