@@ -35,19 +35,16 @@ spec:
             enabled: true
             hosts:
               - host: auth.${DOMAIN_0}
-              - host: '*.${DOMAIN_0}'
+              - host: "*.${DOMAIN_0}"
                 paths:
                   - path: /outpost.goauthentik.io
                     pathType: Prefix
-            # integrations:
-            #   traefik:
-            #     enabled: true
-            #     middlewares:
-            #     - name: local
-            #       namespace: traefik
-            #   certManager:
-            #     enabled: true
-            #     certificateIssuer: ${CERT_ISSUER}
+            integrations:
+              traefik:
+                enabled: true
+              certManager:
+                enabled: true
+                certificateIssuer: ${CERT_ISSUER}
         authentik:
             email: ${AUTH_INSTALL_EMAIL}
             password: ${AUTH_INSTALL_PASS}
