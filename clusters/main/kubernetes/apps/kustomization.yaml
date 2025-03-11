@@ -19,3 +19,4 @@ resources:
   - syncthing/ks.yaml
   - wg-easy/ks.yaml
   - authentik/ks.yaml
+  - ubiquiti/ks.yaml
