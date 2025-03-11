@@ -21,3 +21,4 @@ resources:
   - authentik/ks.yaml
   - ubiquiti/ks.yaml
   - dashboard-external/ks.yaml
+  - proxmox-dashboard/ks.yaml
