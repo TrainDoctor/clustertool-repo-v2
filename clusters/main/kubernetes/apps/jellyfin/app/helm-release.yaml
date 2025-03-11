@@ -144,8 +144,8 @@ spec:
                 integrations:
                   traefik:
                     enabled: true
-                  middlewares:
-                    - name: auth
-                      namespace: traefik
+                    middlewares:
+                      - name: auth
+                        namespace: traefik
                 hosts:
                     - host: jf.${DOMAIN_0}
