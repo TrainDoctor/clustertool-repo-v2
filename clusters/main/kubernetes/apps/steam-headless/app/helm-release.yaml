@@ -38,14 +38,17 @@ spec:
           main:
             enabled: true
             hosts:
-            - host: steam.${DOMAIN_0}
+              - host: steam.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
             integrations:
-            traefik:
+              traefik:
                 enabled: true
                 middlewares:
                   - name: auth
                     namespace: traefik
-            certManager:
+              certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
         persistence:
