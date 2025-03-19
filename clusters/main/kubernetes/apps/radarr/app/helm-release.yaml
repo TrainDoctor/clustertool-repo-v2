@@ -38,13 +38,13 @@ spec:
             hosts:
             - host: rad.${DOMAIN_0}
             integrations:
-            traefik:
-                enabled: true
-                entrypoints:
-                  - web
-                middlewares:
-                  - name: auth
-                    namespace: traefik
+                traefik:
+                    enabled: true
+                    entrypoints:
+                    - web
+                    middlewares:
+                    - name: auth
+                      namespace: traefik
             certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
