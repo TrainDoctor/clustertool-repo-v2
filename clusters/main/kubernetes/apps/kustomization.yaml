@@ -20,6 +20,5 @@ resources:
   - wg-easy/ks.yaml
   - authentik/ks.yaml
   - ubiquiti/ks.yaml
-  - dashboard-external/ks.yaml
   - proxmox-dashboard/ks.yaml
   - truenas-dashboard/ks.yaml
