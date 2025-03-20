@@ -40,8 +40,6 @@ spec:
             integrations:
             traefik:
               enabled: true
-              entrypoints:
-                - web
               middlewares:
                 - name: auth
                   namespace: traefik
