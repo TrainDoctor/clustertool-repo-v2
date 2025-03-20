@@ -86,9 +86,6 @@ spec:
             middlewares:
               - name: auth
                 namespace: traefik
-            # fixedMiddlewares:
-            #   - name: chain-basic
-            #     namespace: traefik
         hosts:
           - host: traefik.${DOMAIN_0}
             paths:
