@@ -33,31 +33,22 @@ spec:
                 secretKey: ${VOLSYNC_S3_SECRETKEY}
                 encrKey: ${VOLSYNC_S3_ENCKEY}
         ingress:
-          main:
+            main:
             enabled: true
             hosts:
-            - host: rad.${DOMAIN_0}
+                - host: rad.${DOMAIN_0}
             integrations:
                 traefik:
                     enabled: true
                     entrypoints:
-                    - web
+                        - web
+                        - websecure
                     middlewares:
-                    - name: auth
-                      namespace: traefik
+                        - name: auth
+                          namespace: traefik
             certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
-        metrics:
-            main:
-                enabled: false
-                endpoints:
-                    - path: /metrics
-                      port: metrics
-                prometheusRule:
-                    enabled: false
-                targetSelector: metrics
-                type: servicemonitor
         persistence:
             config:
                 enabled: true
@@ -104,24 +95,5 @@ spec:
         updated: true
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                RADARR__AUTHENTICATION_METHOD: ""
-                                RADARR__PORT: '{{ .Values.service.main.ports.main.port }}'
-                            probes:
-                                liveness:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
-                                readiness:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
-                                startup:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
                 replicas: 1
                 type: Deployment
