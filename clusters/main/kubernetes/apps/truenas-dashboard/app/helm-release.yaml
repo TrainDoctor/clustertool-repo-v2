@@ -22,10 +22,6 @@ spec:
               useSlice: false
               ports:
                 main:
-                  protocol: http
-                  port: 80
-                  redirectTo: websecure
-                websecure:
                   enabled: true
                   port: 443
                   protocol: https
