@@ -22,14 +22,6 @@ spec:
             netshoot:
                 enabled: false
             vpn:
-                type: disabled
-        configmap:
-            dashboard:
-                data:
-                    prowlarr.json: '{{ .Files.Get "dashboard.json" | indent 8 }}'
-                enabled: true
-                labels:
-                    grafana_dashboard: "1"
         credentials:
             prowlarr:
                 name: prowlarr
@@ -43,7 +35,10 @@ spec:
           main:
             enabled: true
             hosts:
-            - host: prow.${DOMAIN_0}
+              - host: prow.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
             integrations:
             traefik:
                 enabled: true
@@ -56,16 +51,6 @@ spec:
             certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
-        metrics:
-            main:
-                enabled: false
-                endpoints:
-                    - path: /metrics
-                      port: metrics
-                prometheusRule:
-                    enabled: false
-                targetSelector: metrics
-                type: servicemonitor
         persistence:
             config:
                 enabled: true
@@ -87,9 +72,8 @@ spec:
         podOptions:
             dnsConfig:
                 nameservers:
-                    - 8.8.8.8
-                    - 8.8.4.4
-            hostNetwork: false
+                    - 1.1.1.1
+                    - 1.0.0.1
         release_name: prowlarr
         resources: {}
         securityContext:
@@ -112,18 +96,5 @@ spec:
         updated: true
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                PROWLARR__AUTHENTICATION_METHOD: ""
-                                PROWLARR__PORT: '{{ .Values.service.main.ports.main.port }}'
-                            probes:
-                                liveness:
-                                    path: /ping
-                                readiness:
-                                    path: /ping
-                                startup:
-                                    type: tcp
                 replicas: 1
                 type: Deployment
