@@ -36,17 +36,20 @@ spec:
           main:
             enabled: true
             hosts:
-             - host: sync.${DOMAIN_0}
+              - host: sync.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
             integrations:
-            traefik:
-              enabled: true
-              entrypoints:
-                - web
-                - websecure
-              middlewares:
-                - name: auth
-                  namespace: traefik
-            certManager:
+              traefik:
+                enabled: true
+                entrypoints:
+                  - web
+                  - websecure
+                middlewares:
+                  - name: auth
+                    namespace: traefik
+              certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
         persistence:
@@ -130,15 +133,5 @@ spec:
                 type: LoadBalancer
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            probes:
-                                liveness:
-                                    path: /rest/noauth/health
-                                readiness:
-                                    path: /rest/noauth/health
-                                startup:
-                                    path: /rest/noauth/health
                 replicas: 1
                 type: Deployment
