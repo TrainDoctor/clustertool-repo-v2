@@ -36,9 +36,12 @@ spec:
           main:
             enabled: true
             hosts:
-            - host: son.${DOMAIN_0}
+              - host: son.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
             integrations:
-            traefik:
+              traefik:
                 enabled: true
                 entrypoints:
                   - web
@@ -46,19 +49,9 @@ spec:
                 middlewares:
                   - name: auth
                     namespace: traefik
-            certManager:
+              certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
-        metrics:
-            main:
-                enabled: false
-                endpoints:
-                    - path: /metrics
-                      port: metrics
-                prometheusRule:
-                    enabled: false
-                targetSelector: metrics
-                type: servicemonitor
         persistence:
             config:
                 enabled: true
@@ -108,24 +101,5 @@ spec:
         updated: true
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                SONARR__AUTHENTICATION_METHOD: ""
-                                SONARR__PORT: '{{ .Values.service.main.ports.main.port }}'
-                            probes:
-                                liveness:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
-                                readiness:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
-                                startup:
-                                    enabled: true
-                                    path: /ping
-                                    type: http
                 replicas: 1
                 type: Deployment
