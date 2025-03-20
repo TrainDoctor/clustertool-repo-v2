@@ -74,6 +74,11 @@ spec:
           tls:
             insecureSkipVerify: false
           trustForwardHeader: true
+      redirectScheme:
+        - name: redirect-to-https
+          redirectScheme:
+            scheme: https
+            permanent: true
     ingress:
       main:
         enabled: true
