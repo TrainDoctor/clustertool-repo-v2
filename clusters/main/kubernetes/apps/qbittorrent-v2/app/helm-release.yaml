@@ -68,9 +68,12 @@ spec:
           main:
             enabled: true
             hosts:
-            - host: qb.${DOMAIN_0}
+              - host: sync.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
             integrations:
-            traefik:
+              traefik:
                 enabled: true
                 entrypoints:
                   - web
@@ -78,7 +81,7 @@ spec:
                 middlewares:
                   - name: auth
                     namespace: traefik
-            certManager:
+              certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
         persistence:
@@ -165,14 +168,6 @@ spec:
                 type: LoadBalancer
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                QBITTORRENT__PORT: '{{ .Values.service.main.ports.main.port }}'
-                                QBT_BitTorrent__Session__Port: '{{ .Values.service.torrent.ports.torrent.port }}'
-                                QBT_Preferences__Connection__PortRangeMin: '{{ .Values.service.torrent.ports.torrent.port }}'
-                                QBT_Preferences__WebUI__Address: '*'
                 replicas: 1
                 type: Deployment
             # qbitportforward:
