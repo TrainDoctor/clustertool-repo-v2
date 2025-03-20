@@ -35,7 +35,7 @@ spec:
           main:
             enabled: true
             hosts:
-              - host: sync.${DOMAIN_0}
+              - host: prow.${DOMAIN_0}
                 paths:
                   - path: /
                     pathType: Prefix
