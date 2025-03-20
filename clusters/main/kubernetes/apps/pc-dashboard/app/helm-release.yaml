@@ -38,7 +38,7 @@ spec:
               traefik:
                 enabled: true
                 middlewares:
-                  - name: auth
+                  - name: auth-no-basic
                     namespace: traefik
               certManager:
                 enabled: true
