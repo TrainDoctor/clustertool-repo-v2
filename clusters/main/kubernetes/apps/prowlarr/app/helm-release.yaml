@@ -22,6 +22,7 @@ spec:
             netshoot:
                 enabled: false
             vpn:
+                type: disabled
         credentials:
             prowlarr:
                 name: prowlarr
