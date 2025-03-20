@@ -22,3 +22,4 @@ resources:
   - ubiquiti/ks.yaml
   - dashboard-external/ks.yaml
   - proxmox-dashboard/ks.yaml
+  - truenas-dashboard/ks.yaml
