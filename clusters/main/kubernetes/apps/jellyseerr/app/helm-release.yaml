@@ -16,7 +16,7 @@ spec:
     releaseName: jellyseerr
     values:
         global:
-            stopAll: true
+            stopAll: false
         TZ: America/Los_Angeles
         addons:
             codeserver:
@@ -36,15 +36,29 @@ spec:
                 type: s3
                 url: ${VOLSYNC_S3_URL}
         ingress:
-            main:
-                enabled: false
+          main:
+            enabled: true
+            hosts:
+              - host: req.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
+            integrations:
+              traefik:
+                enabled: true
+                entrypoints:
+                  - web
+                  - websecure
+                middlewares:
+                  - name: auth
+                    namespace: traefik
+              certManager:
+                enabled: true
+                certificateIssuer: ${CERT_ISSUER}
         persistence:
             config:
                 enabled: true
                 mountPath: /app/config
-                readOnly: false
-                size: ""
-                storageClass: ""
                 volsync:
                     - credentials: jellyseerr
                       dest:
@@ -53,8 +67,6 @@ spec:
                       src:
                         enabled: true
                       type: restic
-        podOptions:
-            hostNetwork: false
         release_name: jellyseerr
         resources: {}
         securityContext:
@@ -75,13 +87,5 @@ spec:
                 type: LoadBalancer
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                JELLYFIN_TYPE: ""
-                                LOG_LEVEL: info
-                                PORT: '{{ .Values.service.main.ports.main.port }}'
-                                API_KEY: 
                 replicas: 1
                 type: Deployment
