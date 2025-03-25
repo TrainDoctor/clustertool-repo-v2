@@ -7,7 +7,7 @@ spec:
     interval: 15m
     chart:
         spec:
-            chart: minecraft-server
+            chart: minecraft-java
             version: 22.23.1
             sourceRef:
                 kind: HelmRepository
