@@ -101,28 +101,28 @@ spec:
                 ports:
                     main:
                         port: 25565
-            dashboard:
-                enabled: true
-                type: LoadBalancer
-                loadBalancerIP: "${GAME_SERVERS_IP}"
-                ports:
-                  dashboard:
-                    enabled: true
-                    protocol: tcp
-                    port: 7867
-        ingress:
-          dashboard:
-            enabled: true
-            primary: true
-            targetSelector:
-              dashboard: dashboard
-            hosts:
-              - host: mc.${DOMAIN_0}
-            integrations:
-              traefik:
-                enabled: true
-          main:
-            enabled: false
+            # dashboard:
+            #     enabled: true
+            #     type: LoadBalancer
+            #     loadBalancerIP: "${GAME_SERVERS_IP}"
+            #     ports:
+            #       dashboard:
+            #         enabled: true
+            #         protocol: tcp
+            #         port: 7867
+        # ingress:
+        #   dashboard:
+        #     enabled: true
+        #     primary: true
+        #     targetSelector:
+        #       dashboard: dashboard
+        #     hosts:
+        #       - host: mc.${DOMAIN_0}
+        #     integrations:
+        #       traefik:
+        #         enabled: true
+        #   main:
+        #     enabled: false
         workload:
             main:
                 replicas: 1
