@@ -142,10 +142,10 @@ spec:
             mode: recovery
             backups:
               enabled: true
-              # revision: "2"
+              # revision: "3"
               credentials: authentik
             recovery:
-              revision: "1"
+              # revision: "2"
               credentials: authentik
             enabled: true
             user: authentik
