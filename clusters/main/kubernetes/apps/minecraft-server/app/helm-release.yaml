@@ -106,9 +106,9 @@ spec:
                 enabled: true
                 sharedKey: custom-shared-key
                 loadBalancerIP: "${GAME_SERVERS_IP}"
-                ports:
-                    main:
-                        port: 25565
+                # ports:
+                #     main:
+                #         port: 25565
                 type: LoadBalancer
             mcdash:
                 enabled: true
