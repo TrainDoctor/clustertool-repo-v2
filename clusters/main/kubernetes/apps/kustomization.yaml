@@ -23,3 +23,4 @@ resources:
   - proxmox-dashboard/ks.yaml
   - truenas-dashboard/ks.yaml
   - pc-dashboard/ks.yaml
+  - minecraft-server/ks.yaml
