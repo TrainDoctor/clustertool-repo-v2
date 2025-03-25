@@ -43,8 +43,7 @@ spec:
                           namespace: traefik
                     certManager:
                       enabled: true
-                  certificateIssuer: ${CERT_ISSUER}
-                  
+                  certificateIssuer: ${CERT_ISSUER}   
             netshoot:
                 enabled: false
             vpn:
@@ -97,11 +96,11 @@ spec:
             main:
                 enabled: true
                 sharedKey: custom-shared-key
+                type: LoadBalancer
                 loadBalancerIP: "${GAME_SERVERS_IP}"
                 ports:
                     main:
                         port: 25565
-                type: LoadBalancer
             dashboard:
                 enabled: true
                 type: LoadBalancer
