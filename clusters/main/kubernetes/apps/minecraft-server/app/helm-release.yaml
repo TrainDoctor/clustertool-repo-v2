@@ -58,17 +58,6 @@ spec:
                 accessKey: ${VOLSYNC_S3_ACCESSKEY}
                 secretKey: ${VOLSYNC_S3_SECRETKEY}
                 encrKey: ${VOLSYNC_S3_ENCKEY}
-        ingress:
-            mcdash:
-              enabled: true
-              primary: true
-              targetSelector:
-                mcdash: mcdash
-              hosts:
-                - host: mc.${DOMAIN_0}
-              integrations:
-                traefik:
-                  enabled: true
         persistence:
             data:
                 enabled: true
@@ -110,16 +99,26 @@ spec:
                 #     main:
                 #         port: 25565
                 type: LoadBalancer
-            mcdash:
+            dashboard:
                 enabled: true
                 type: LoadBalancer
                 loadBalancerIP: "${GAME_SERVERS_IP}"
                 ports:
-                  mcdash:
+                  dashboard:
                     enabled: true
                     protocol: tcp
                     port: 7867
-        updated: true
+        ingress:
+          dashboard:
+            enabled: true
+            primary: true
+            targetSelector:
+              dashboard: dashboard
+            hosts:
+              - host: mc.${DOMAIN_0}
+            integrations:
+              traefik:
+                enabled: true
         workload:
             main:
                 replicas: 1
