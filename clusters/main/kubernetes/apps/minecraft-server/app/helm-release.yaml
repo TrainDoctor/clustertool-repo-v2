@@ -1,0 +1,126 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: minecraft-server
+    namespace: minecraft-server
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: minecraft-server
+            version: 22.23.1
+            sourceRef:
+                kind: HelmRepository
+                name: truecharts
+                namespace: flux-system
+    releaseName: minecraft-server
+    values:
+        TZ: America/Los_Angeles
+        addons:
+            codeserver:
+                enabled: enabled
+                service:
+                  type: "LoadBalancer"
+                  loadBalancerIP: "${GAME_SERVERS_IP}"
+                  ports:
+                    codeserver:
+                      port: 12321
+                ingress:
+                  enabled: true
+                  hosts:
+                    - host: mc.cs.${DOMAIN_0}
+                      paths:
+                        - path: /
+                          pathType: Prefix
+                  integrations:
+                    traefik:
+                      enabled: true
+                      entrypoints:
+                        - web
+                        - websecure
+                      middlewares:
+                        - name: auth
+                          namespace: traefik
+                    certManager:
+                      enabled: true
+                  certificateIssuer: ${CERT_ISSUER}
+                  
+            netshoot:
+                enabled: false
+            vpn:
+                type: disabled
+        credentials:
+            minecraft-server:
+                name: minecraft-server
+                type: s3
+                url: ${VOLSYNC_S3_URL}
+                bucket: ${VOLSYNC_S3_BUCKET}
+                accessKey: ${VOLSYNC_S3_ACCESSKEY}
+                secretKey: ${VOLSYNC_S3_SECRETKEY}
+                encrKey: ${VOLSYNC_S3_ENCKEY}
+        ingress:
+            mcdash:
+              enabled: true
+              primary: true
+              targetSelector:
+                mcdash: mcdash
+              hosts:
+                - host: mc.${DOMAIN_0}
+              integrations:
+                traefik:
+                  enabled: true
+        persistence:
+            data:
+                enabled: true
+                targetSelector:
+                    main:
+                        main:
+                            mountPath: /data
+                volsync:
+                    - credentials: minecraft-server
+                      dest:
+                        enabled: true
+                      name: cfg
+                      src:
+                        enabled: true
+                      type: restic
+            backups:
+                enabled: true
+                type: nfs
+                mountPath: /data
+                path: /mnt/PoolTwo/data
+                server: ${MEDIA_LOCAL_NAS_IP}
+        release_name: minecraft-server
+        resources: {}
+        securityContext:
+            container:
+                UMASK: "0022"
+                privileged: false
+                readOnlyRootFilesystem: true
+                runAsGroup: ${MEDIA_GROUP}
+                runAsUser: ${MEDIA_USER}
+            pod:
+                fsGroupChangePolicy: OnRootMismatch
+        service:
+            main:
+                enabled: true
+                sharedKey: custom-shared-key
+                loadBalancerIP: "${GAME_SERVERS_IP}"
+                ports:
+                    main:
+                        port: 25565
+                type: LoadBalancer
+            mcdash:
+                enabled: true
+                type: LoadBalancer
+                loadBalancerIP: "${GAME_SERVERS_IP}"
+                ports:
+                  mcdash:
+                    enabled: true
+                    protocol: tcp
+                    port: 7867
+        updated: true
+        workload:
+            main:
+                replicas: 1
+                type: Deployment
