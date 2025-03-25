@@ -21,7 +21,7 @@ spec:
                 enabled: false
                 service:
                   type: "LoadBalancer"
-                  loadBalancerIP: "${GAME_SERVERS_IP}"
+                  loadBalancerIP: "${SERVER_IP}"
                   ports:
                     codeserver:
                       port: 12321
@@ -75,8 +75,8 @@ spec:
             backups:
                 enabled: true
                 type: nfs
-                mountPath: /data
-                path: /mnt/PoolTwo/data
+                mountPath: /backups
+                path: /mnt/PoolTwo/data/servers/minecraft-backups/
                 server: ${MEDIA_LOCAL_NAS_IP}
         release_name: minecraft-server
         resources: {}
