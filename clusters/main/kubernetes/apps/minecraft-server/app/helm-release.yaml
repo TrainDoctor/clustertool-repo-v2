@@ -97,14 +97,14 @@ spec:
                 enabled: true
                 sharedKey: custom-shared-key
                 type: LoadBalancer
-                loadBalancerIP: "${GAME_SERVERS_IP}"
+                loadBalancerIP: "${SERVER_IP}"
                 ports:
                     main:
                         port: 25565
             # dashboard:
             #     enabled: true
             #     type: LoadBalancer
-            #     loadBalancerIP: "${GAME_SERVERS_IP}"
+            #     loadBalancerIP: "${SERVER_IP}"
             #     ports:
             #       dashboard:
             #         enabled: true
