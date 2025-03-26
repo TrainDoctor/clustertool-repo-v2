@@ -64,7 +64,7 @@ spec:
                     main:
                         main:
                             mountPath: /data
-                        type: nfs
+                    type: nfs
                     mountPath: /data
                     path: /mnt/PoolTwo/data/servers/minecraft/data
                     server: ${MEDIA_LOCAL_NAS_IP}
