@@ -110,16 +110,16 @@ spec:
         ingress:
           main:
             enabled: false
-          dashboard:
-            enabled: true
-            primary: true
-            targetSelector:
-              dashboard: dashboard
-            hosts:
-              - host: mc.${DOMAIN_0}
-            integrations:
-              traefik:
-                enabled: true
+          # dashboard:
+          #   enabled: true
+          #   primary: true
+          #   targetSelector:
+          #     dashboard: dashboard
+          #   hosts:
+          #     - host: mc.${DOMAIN_0}
+          #   integrations:
+          #     traefik:
+          #       enabled: true
         workload:
             main:
               podSpec:
