@@ -126,6 +126,8 @@ spec:
              containers:
                main:
                  env:
+                  OPS: "thetraindoctor"
+                  EXISTING_OPS_FILE: SYNCHRONIZE
                   OVERRIDE_SERVER_PROPERTIES: true
                   TYPE: "SPIGOT"
                   SPIGOT_DOWNLOAD_URL: "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar"
