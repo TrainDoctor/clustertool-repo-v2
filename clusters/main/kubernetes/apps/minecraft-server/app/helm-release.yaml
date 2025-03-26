@@ -67,7 +67,7 @@ spec:
                 volsync:
                     - credentials: minecraft-server
                       dest:
-                        enabled: true
+                        enabled: false
                       name: cfg
                       src:
                         enabled: true
@@ -128,6 +128,6 @@ spec:
                  env:
                   OVERRIDE_SERVER_PROPERTIES: true
                   TYPE: "SPIGOT"
-                  SPIGOT_DOWNLOAD_URL: "https://api.purpurmc.org/v2/purpur/1.20.1/2062/download"
+                  SPIGOT_DOWNLOAD_URL: "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar"
                   VERSION: "1.20.1"
                   MOTD: "Welcome to TrainCraft"
