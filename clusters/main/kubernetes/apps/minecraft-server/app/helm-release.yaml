@@ -134,7 +134,7 @@ spec:
                   MEMORY: 6G
                   ENABLE_WHITELIST: true
                   OPS: "thetraindoctor"
-                  WHITELIST: "thetraindoctor"
+                  WHITELIST: "thetraindoctor,g4ort"
                   EXISTING_OPS_FILE: SYNCHRONIZE
                   OVERRIDE_SERVER_PROPERTIES: true
                   EXISTING_WHITELIST_FILE: SYNCHRONIZE
