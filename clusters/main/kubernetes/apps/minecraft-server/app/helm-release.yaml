@@ -60,14 +60,10 @@ spec:
         persistence:
             data:
                 enabled: true
-                targetSelector:
-                    main:
-                        main:
-                            mountPath: /data
-                    type: nfs
-                    mountPath: /data
-                    path: /mnt/PoolTwo/data/servers/minecraft/data
-                    server: ${MEDIA_LOCAL_NAS_IP}
+                mountPath: /data
+                type: nfs
+                path: /mnt/PoolTwo/data/servers/minecraft/data
+                server: ${MEDIA_LOCAL_NAS_IP}
                 # volsync:
                 #     - credentials: minecraft-server
                 #       dest:
