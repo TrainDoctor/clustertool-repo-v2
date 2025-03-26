@@ -89,10 +89,6 @@ spec:
                 runAsUser: ${MEDIA_USER}
             pod:
                 fsGroupChangePolicy: OnRootMismatch
-        env:
-          TYPE: "SPIGOT"
-          SPIGOT_DOWNLOAD_URL: "https://api.purpurmc.org/v2/purpur/1.21.4/2411/download"
-          MOTD: "Welcome to TrainCraft"
         service:
             main:
                 enabled: true
@@ -126,5 +122,11 @@ spec:
                 enabled: true
         workload:
             main:
+                podSpec:
+                  main:
+                    env:
+                      TYPE: "SPIGOT"
+                      SPIGOT_DOWNLOAD_URL: "https://api.purpurmc.org/v2/purpur/1.21.4/2411/download"
+                      MOTD: "Welcome to TrainCraft"
                 replicas: 1
                 type: Deployment
