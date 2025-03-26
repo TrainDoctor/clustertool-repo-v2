@@ -39,7 +39,7 @@ spec:
                 volsync:
                     - credentials: jellyfin
                       dest:
-                        enabled: true
+                        enabled: false
                       name: cfg
                       src:
                         enabled: true
