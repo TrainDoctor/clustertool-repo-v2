@@ -141,9 +141,9 @@ spec:
                   TYPE: "SPIGOT"
                   SPIGOT_DOWNLOAD_URL: "https://github.com/IzzelAliz/Arclight/releases/download/Trials%2F1.0.6/arclight-forge-1.20.1-1.0.6.jar"
                   # MODPACK_PLATFORM: "MODRINTH"
-                  MODRINTH_DOWNLOAD_DEPENDENCIES: required
-                  MODRINTH_MODPACK: https://modrinth.com/modpack/kutsals-revenge/version/0.17
+                  # MODRINTH_DOWNLOAD_DEPENDENCIES: required
+                  # MODRINTH_MODPACK: https://modrinth.com/modpack/kutsals-revenge/version/0.17
                   # MODRINTH_PROJECTS: https://modrinth.com/modpack/kutsals-revenge
-                  MODRINTH_VERSION: ZO4ivT6c
+                  # MODRINTH_VERSION: ZO4ivT6c
                   VERSION: "1.20.1"
                   MOTD: "Welcome to TrainCraft"
