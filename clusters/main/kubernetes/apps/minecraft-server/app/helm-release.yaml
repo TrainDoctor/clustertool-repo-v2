@@ -98,15 +98,15 @@ spec:
                 ports:
                     main:
                         port: 25565
-            dashboard:
-                enabled: true
-                type: LoadBalancer
-                loadBalancerIP: "${SERVICES_IP}"
-                ports:
-                  dashboard:
-                    enabled: true
-                    protocol: tcp
-                    port: 7867
+            # dashboard:
+            #     enabled: true
+            #     type: LoadBalancer
+            #     loadBalancerIP: "${SERVICES_IP}"
+            #     ports:
+            #       dashboard:
+            #         enabled: true
+            #         protocol: tcp
+            #         port: 7867
         ingress:
           main:
             enabled: false
