@@ -64,14 +64,18 @@ spec:
                     main:
                         main:
                             mountPath: /data
-                volsync:
-                    - credentials: minecraft-server
-                      dest:
-                        enabled: false
-                      name: cfg
-                      src:
-                        enabled: true
-                      type: restic
+                        type: nfs
+                    mountPath: /data
+                    path: /mnt/PoolTwo/data/servers/minecraft/data
+                    server: ${MEDIA_LOCAL_NAS_IP}
+                # volsync:
+                #     - credentials: minecraft-server
+                #       dest:
+                #         enabled: false
+                #       name: cfg
+                #       src:
+                #         enabled: true
+                #       type: restic
             backups:
                 enabled: true
                 type: nfs
