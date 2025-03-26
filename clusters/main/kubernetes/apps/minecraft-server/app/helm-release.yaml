@@ -21,7 +21,7 @@ spec:
                 enabled: false
                 service:
                   type: "LoadBalancer"
-                  loadBalancerIP: "${SERVICES_IP}"
+                  loadBalancerIP: "${SERVER_IP}"
                   ports:
                     codeserver:
                       port: 12321
@@ -94,14 +94,14 @@ spec:
                 enabled: true
                 sharedKey: custom-shared-key
                 type: LoadBalancer
-                loadBalancerIP: "${SERVICES_IP}"
+                loadBalancerIP: "${SERVER_IP}"
                 ports:
                     main:
                         port: 25565
             # dashboard:
             #     enabled: true
             #     type: LoadBalancer
-            #     loadBalancerIP: "${SERVICES_IP}"
+            #     loadBalancerIP: "${SERVER_IP}"
             #     ports:
             #       dashboard:
             #         enabled: true
