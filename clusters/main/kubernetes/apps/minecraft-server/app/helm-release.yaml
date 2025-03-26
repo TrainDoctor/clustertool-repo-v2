@@ -121,8 +121,9 @@ spec:
           #     traefik:
           #       enabled: true
         workload:
-            main:
-              podSpec:
+          main:
+            podSpec:
+              containers:
                 main:
                   env:
                     OVERRIDE_SERVER_PROPERTIES: true
