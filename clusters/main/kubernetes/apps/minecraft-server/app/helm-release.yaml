@@ -18,7 +18,7 @@ spec:
         TZ: America/Los_Angeles
         addons:
             codeserver:
-                enabled: false
+                enabled: true
                 service:
                   type: "LoadBalancer"
                   loadBalancerIP: "${SERVER_IP}"
@@ -26,7 +26,7 @@ spec:
                     codeserver:
                       port: 12321
                 ingress:
-                  enabled: true
+                  enabled: false
                   hosts:
                     - host: mc.cs.${DOMAIN_0}
                       paths:
