@@ -125,6 +125,7 @@ spec:
               podSpec:
                 main:
                   env:
+                    OVERRIDE_SERVER_PROPERTIES: true
                     TYPE: "SPIGOT"
                     SPIGOT_DOWNLOAD_URL: "https://api.purpurmc.org/v2/purpur/1.21.4/2411/download"
                     MOTD: "Welcome to TrainCraft"
