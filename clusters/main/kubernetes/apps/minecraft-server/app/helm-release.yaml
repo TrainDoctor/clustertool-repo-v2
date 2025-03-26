@@ -125,6 +125,11 @@ spec:
            podSpec:
              containers:
                main:
+                 resources:
+                  limits:
+                    memory: 8Gi
+                  requests:
+                    memory: 6Gi
                  env:
                   OPS: "thetraindoctor"
                   EXISTING_OPS_FILE: SYNCHRONIZE
