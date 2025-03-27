@@ -140,11 +140,13 @@ spec:
                   OVERRIDE_SERVER_PROPERTIES: true
                   EXISTING_WHITELIST_FILE: SYNCHRONIZE
                   TYPE: "FORGE"
+                  GENERIC_PACKS: /data/pack-zip/kutsals-revenge-1.0.0
+                  GENERIC_PACKS_SUFFIX: .zip
                   # CUSTOM_SERVER: "https://github.com/IzzelAliz/Arclight/releases/download/Trials%2F1.0.6/arclight-forge-1.20.1-1.0.6.jar"
                   # MODPACK_PLATFORM: "MODRINTH"
                   # MODRINTH_DOWNLOAD_DEPENDENCIES: required
                   # MODRINTH_MODPACK: https://modrinth.com/modpack/create-plus-with-sinytra/version/1.0.0
-                  MODRINTH_MODPACK: ""
+                  # MODRINTH_MODPACK: ""
                   # MODRINTH_PROJECTS: https://modrinth.com/modpack/kutsals-revenge
                   # MODRINTH_VERSION: ib3H7Lrj
                   VERSION: "1.20.1"
