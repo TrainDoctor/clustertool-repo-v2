@@ -131,7 +131,7 @@ spec:
                   requests:
                     memory: 6Gi
                  env:
-                  DEBUG: true
+                  DEBUG: false
                   MEMORY: 6G
                   ENABLE_WHITELIST: true
                   OPS: "thetraindoctor"
