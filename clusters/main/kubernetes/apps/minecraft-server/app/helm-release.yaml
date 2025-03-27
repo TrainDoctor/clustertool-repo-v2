@@ -140,8 +140,7 @@ spec:
                   OVERRIDE_SERVER_PROPERTIES: true
                   EXISTING_WHITELIST_FILE: SYNCHRONIZE
                   TYPE: "FORGE"
-                  MODPACK: /data/pack-zip/kustals-revenge-mods-1.0.0.tgz
-                  GENERIC_PACK: ""
+                  MODPACK: /data/pack-zip/kustals-revenge-mods-1.0.0.zip
                   # GENERIC_PACKS_SUFFIX: .zip
                   # SKIP_GENERIC_PACK_UPDATE_CHECK: true
                   # CUSTOM_SERVER: "https://github.com/IzzelAliz/Arclight/releases/download/Trials%2F1.0.6/arclight-forge-1.20.1-1.0.6.jar"
