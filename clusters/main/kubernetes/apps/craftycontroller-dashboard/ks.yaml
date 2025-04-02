@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: truenas-dashboard
+  name: craftycontroller-dashboard
   namespace: flux-system
 spec:
   interval: 10m
