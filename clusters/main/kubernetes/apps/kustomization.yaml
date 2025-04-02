@@ -24,3 +24,4 @@ resources:
   - truenas-dashboard/ks.yaml
   - pc-dashboard/ks.yaml
   - minecraft-server/ks.yaml
+  - craftycontroller-dashboard/ks.yaml
