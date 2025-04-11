@@ -78,7 +78,7 @@ spec:
                         enabled: false
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
         release_name: steam-headless
         resources: {}
