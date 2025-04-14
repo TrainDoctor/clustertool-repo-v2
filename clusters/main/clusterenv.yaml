@@ -1,36 +1,51 @@
-## The Following are required by ClusterTool and CANNOT be removed
-# Ensure VIP is different from all master IPs
-VIP: 192.168.20.200
-## Defines the MasterNode IP
-# Please be aware, we only support x86_64 for the first node, ARM will NOT work by default
-MASTER1IP: 192.168.20.210
-# Defines the gateway for all nodes
-GATEWAY: 192.168.20.1
-# Defines the ip range metallb is allowed to use
-METALLB_RANGE: 192.168.20.211-192.168.20.219
-# IP NGINX will use for exposing ingress-resources. Internal refers to LAN-only NGINX ingress, dont port-forward at router
-NGINX_INTERNAL_IP: 192.168.20.221
-# IP NGINX will use for exposing ingress-resources. Internal refers to LAN-and-WAN NGINX ingress, DO port-forward at router
-NGINX_EXTERNAL_IP: 192.168.20.222
-# IP Blocky DNS will be exposed on
-BLOCKY_IP: 192.168.20.212
-# Sets the Kubernetes Dashboard IP. Has to be within METALLB_RANGE and not in use
-DASHBOARD_IP: 192.168.20.213
-## Configures Traefik, ClusterIssuer and Blocky for said domain, using these credentials
-# domain is the base/highest level of your domain, so without subdomain, example: truecharts.org, not somesite.truecharts.org
-# To disable, please see the comments in their respective helm-values.yaml files!
-# When disabled, please use placeholder values instead.
+#ENC[AES256_GCM,data:B2XJlhicCkpDEsaxqlMCyKYvazyhb//IO6ex2YNa69v6OVnBbNYTFgEG/ReaOA7reSxu1IG9Qw2NcVxy0br8MzI=,iv:py/EF2Qmi9P7eTt//Wzdnmoz1LrprEsGWgf0Z9e0+ow=,tag:k7Uc8r+SUibKaS2mvtc3aQ==,type:comment]
+#ENC[AES256_GCM,data:nB2B7Xl7y7XrjJ3XrVYlFllbevlkFzTg4LYsHTFAzul0W/ItVJoXIfXkdMM=,iv:DbRHeRb026ts7dszXF/OWuQRqbrZ7eyh9Fgzpy4xjKM=,tag:lqxfrnZSg4OPckmXuGrVIQ==,type:comment]
+VIP: ENC[AES256_GCM,data:6yy113yFEo4izDiO+SI=,iv:LGL7NPLTrPsnwTGNJI6TacG7cS8kxA0xkbb7ZA2f2Xk=,tag:bYe0DjlRvyrJGMauARihyA==,type:str]
+#ENC[AES256_GCM,data:kEGjC86OjeDFitW/snkR41GXTpvWk5c9mZ9n,iv:CamV/B5y1LPBVQQElUB+wrqzHaFlve7TW8v6GGN8Avk=,tag:SwrgIH24py+kBlIKc8zoQA==,type:comment]
+#ENC[AES256_GCM,data:i8ucHwRP7GhxasjtGvhyrnXYoQzIPKPD/1NIPu13qxSjr4W8Kbq0z79jpW+jmMaIbA8wyu/2iAPAkuWjSkBwAWe67Hr4t0/eIo6eYZK7faPAdOIWMq9wIyQ=,iv:8qC5rTqnMKEuVN4f2LlE1Mu87S0OfOy3mjselKiVRH4=,tag:339PKyISleYVClC2+yELpw==,type:comment]
+MASTER1IP: ENC[AES256_GCM,data:PX24i/MGSdJSXtI1CIg=,iv:jLIkqSoL2WRRBxv0kK2ZmYWA9uI8fkYtdiYhD7toflg=,tag:0h6wJv6BygO2Tp2NdHrDiw==,type:str]
+#ENC[AES256_GCM,data:FOWZfTv1cvF12FqDuagXeV2TUFeRWliGf5+wyHaZL9uG0A==,iv:q/3xf25JtlC4GM5tEsnSbOLl6LdVwewF6hhe1XM/eA8=,tag:b+xw1hqs2m97ITx3YMW8zA==,type:comment]
+GATEWAY: ENC[AES256_GCM,data:DsMaBifmey0z9Qe+,iv:wNNM54TU2sz5NTdFl83AE6NANe8+LwEqTQG+K6v4mPI=,tag:ljIOLJXIk2JMQKF+z8TBpA==,type:str]
+#ENC[AES256_GCM,data:NXqPdT1Nl+ibJc0PaHnAHFaN632eNY8FnGDH+MlgQjEHlgJrs9cPAb54O6TiGAY=,iv:ir1SEImIDumTqKiJ+drh0ggJ9wk0ahPwo1gVDJz6Z3A=,tag:W8RL7/O8DC90bBGAMbed1Q==,type:comment]
+METALLB_RANGE: ENC[AES256_GCM,data:FoK+A9qkBjvw9QtDI881vOVw6TgA0u+W8trRDoM=,iv:XuFLHSvyLYvWCQQ1YBknKe6jdDQtLWGp1LHi5/hJkjQ=,tag:a8ODQDA1zTNAIa1d/eU1eA==,type:str]
+#ENC[AES256_GCM,data:kbO/PtbandicL4rA+Sl/GQJWPzMSjvJWmIkZcu75je928sW4AZSAkFAwL1beZ6SHDQDwIahDQDwALqlvKuejM79F7HbkYrdGO7CfNkoTbgayVnhTx1gap25ODmKsqzRLh0gMSpDc+HoLOPxF2pXPbswO8awCUxz+tw==,iv:srXWq2SWZEVEzmgw7/+egZ4f0yeSj9V69YGXKehDBT0=,tag:Kc3BkfhPgcdC0Yo+FejYHQ==,type:comment]
+NGINX_INTERNAL_IP: ENC[AES256_GCM,data:eud4mI5raKdtKAi2MVE=,iv:nAoSAfQY5OWUY1oE1VUPrKC70gGYR/C+3bWz5mANOts=,tag:rDrPKeDaBOIbHlZ4ldQfhw==,type:str]
+#ENC[AES256_GCM,data:mBL+Mg3ENNstVT0iOajdbHpdqd9a6w2JoqzAWGbu1BhLnLEioiqi5lBiV7TyAsuTBrdgATWNQwkuoUAl8rEq49BY/y/vMUnXwqK4mkiEHIAhzN4Al9VLjpzvCx08m8BmYYulo9LDA+bi+WPuNftaFg7+0qzB7xAB3JE=,iv:miaHEjrn4ulQMRW9DxrF9dyd2TUFut8EhetnkQvyHbY=,tag:T/5BCj+srcRLv5Jhiso4ig==,type:comment]
+NGINX_EXTERNAL_IP: ENC[AES256_GCM,data:pkX6W4y0jf5R1juVN1g=,iv:roAHIFOTuxU2yG6GTgu+iy0aaQdp5qr0ugjMY8bd80Y=,tag:LCQ0mQYSX4uTO99oS/M2rg==,type:str]
+#ENC[AES256_GCM,data:pKcF4FtxARWTRM4x1jsYc9LX65SNlcx8f4AOHgoZJTYz,iv:0DQVo/GOvIrxKLwXxMn5VRAWMfe4rcnrsEAcOaf/oYI=,tag:0i1l8b1+oqkfO7t43k3PYQ==,type:comment]
+BLOCKY_IP: ENC[AES256_GCM,data:TqTG4pcQ8Ns/8yHLfxA=,iv:57InWNgGJ6puoPAYmU5t3vGg0/US+VPQxBgsIegA2Ng=,tag:btclsT7VfEzB+6Ca/ZPBMg==,type:str]
+#ENC[AES256_GCM,data:p7Kaw48IgFWmiSGpAoi+TQ73eDMFcExIH4aiJ1/zlkSasPBNwtE8kgFTtRzWAxhRyVKpAgrcK0ZRqHKBTc5T7Bngz8pudQIkSpUJ57wlzcg=,iv:ncnVqSCEJI0DIlby6+egz9fTUC5AfxdrB4wgbI1Yj/Y=,tag:ETWO6mU2I1+3sY5Avhm52Q==,type:comment]
+DASHBOARD_IP: ENC[AES256_GCM,data:uTNL5+lJcCoVs5DwvUM=,iv:ohRORew0gyjl2u6jDsbhKyaNQn4BM+dLAYfC5fLg6g4=,tag:m9el4DIZPMiK59GEWh9ZAA==,type:str]
+#ENC[AES256_GCM,data:/8wj8hOsJKfQXvMrwEnpurXSEjxbc4zou9lD+zy6YzOf8/2GuS54+7xIGhnWVrZQq8SIOtsamD6maqBB7HSWw6saIyYRvp3FbYSC6oSfm8wQ36dODeGM,iv:BCkKHlWiaYQST5PIFtGHnwG/PZu2ef6x4wLHat8LJoY=,tag:oMunto7Q3akea/+9yDvUtw==,type:comment]
+#ENC[AES256_GCM,data:Xgt1Mqnj85aUuQlZLrmyLuBFsj/8ygiPztYu14fVdTqHyhigcA7mc3CjLmPkFTFkcwBve69Vfp2lOPZC+wyApN7uqKvHaLEZWIRmcWW3d+c34Yq8WxL4owc+kNL713VKKfO58U4vwRosiOyYMvndxfVTQjSv6fycghlbsA==,iv:bQb4k0wwAqoMHUKPQVq9izEh9S0e6DGCMoWZtwzSV9I=,tag:FZe6v3ThsO94fONPjPFwPA==,type:comment]
+#ENC[AES256_GCM,data:yC/yeIiSxfL/epHWigrGyrZ7Eoi3Ug7pUfLxmbOd4EXRUUtCsAuUvJqSXYvmDDuFGWlnsfkoCfcusn6mIp1SqwFRFjAWzoeCJ4cHi3HIfPQ=,iv:yApuUpzGvoVHeGMzURu4/Lne5o7P6msNYUKeuC1fbbg=,tag:kj2zbMCUVQk1qe5wr2qrZw==,type:comment]
+#ENC[AES256_GCM,data:onIg49kmNFFnLRt/pUC+I6YkX87twmU1xdpyhwptsBE0D3EYqsltAuffbZLzZ5DmJCIdULsi,iv:9TNT+/FbSIWbZ7sbTOSVMwLCum3yvqvT5Z41mEaR2sA=,tag:3+Y2l3XQ/LqBq9J/vbEhaA==,type:comment]
 DOMAIN_0: ""
 DOMAIN_0_EMAIL: ""
 DOMAIN_0_CLOUDFLARE_TOKEN: ""
-# Used to automatically generate a sshkey-pair for FluxCD
-# Has to start with ssh://
-# Please make sure to NOT contain any special characters in the URL except "-"
+#ENC[AES256_GCM,data:yAlqLSFsPzy3lo4pl9f/iygI3VTD9OvzAxyoQBTmZSUm8yOoKtHCxcW5SnmGmCLBSjjjV18iEW8=,iv:/xSDSQWstF3Fm0jnoEySZzT2O+sBGDSAJVpxb/ESJ4E=,tag:DwvBf54lTlhyrqokKH3wRQ==,type:comment]
+#ENC[AES256_GCM,data:nch9hp0OzizooBWRNOwZUPmbyhowd/0zYA==,iv:zrCPwS8qaVw3JHCVxsHFDDzuLBWUuWS8G3c5wtSYu4k=,tag:Q3o7rPIfU6o2zZAzqC6ruw==,type:comment]
+#ENC[AES256_GCM,data:0eIB6Arwg4k6Kaa+SHeMghYFzBEyq63jXAocryxImsTeZ/6uS+NcXznHcEieEuXonfgOBnfaOpRx+lKHfM+t6hNfocEtm5U7BqnYhaE=,iv:ExTGjZXownSUcyE1H3fRTEweWFn2rXr8AuBpZgxR6Pg=,tag:FbdT/o/t1zk95K9mRk6SfA==,type:comment]
 GITHUB_REPOSITORY: ""
-## Uncomment and adapt to automatically setup your dockerhub credentials
-## This should prevent much of the potential ratelimits
-# DOCKERHUB_USER: dockerhub-username
-# DOCKERHUB_PASSWORD: dockerhub-password
-## DO NOT ALTER
-PODNET: 172.16.0.0/16
-SVCNET: 172.17.0.0/16
+#ENC[AES256_GCM,data:C3mSAp9EEgCVI8f4VQ63bTLFjuuOzeYPJzVOryjXmaRtGcYhpN+qqkZiEKhD0tkGYwpGsvqtoWBNu8Sc3vviZUlDP7L15gE=,iv:vyamye+XpoSm59wqpe1Jg1W1MafR6Zzz9LZlFu4KD50=,tag:SnBL214r5ZdHa9QJjTAdqQ==,type:comment]
+#ENC[AES256_GCM,data:23EkF2+lxk62mQhDL/R5CY435o/nmX3g/3/nHkmiuiUTeEez63A/mbBHNV1B55gdHonmhlWv,iv:LNMd5ljToFPyCIk1ig2skvhRVIW67kvgKnP5GznxvaM=,tag:ARVcejKfKSiH3Mz8n5qWaQ==,type:comment]
+#ENC[AES256_GCM,data:bEqWr6hU+W1hsFRAUamgCJlugG649z1wvofLSSg2waaCvJg=,iv:gffNNSlC67pJvZXGF6LQwtHaNR2C7kaf8FGJv9j6q2Q=,tag:wd5JnkH1MKavm09y8HmI1Q==,type:comment]
+#ENC[AES256_GCM,data:m7mglbn4vU6pKWumZKV453hhVbWbtGeVLlfDfqDYUdLxEfumyVWd,iv:5ilnzVPttDUCRNLPbGm4ISRN8Q3Toavu68tOFD/69q4=,tag:wkwJzB+gGjDSmr7oSrqUCA==,type:comment]
+#ENC[AES256_GCM,data:I7Y3VFKZxH1zQ0l4aGg=,iv:y0Y5i9wl6bCK+SMXb1JM9Edi6GLQzQv8GC9uzVuMC4k=,tag:/hXPN+Hf9ONgJdkDgxHtdw==,type:comment]
+PODNET: ENC[AES256_GCM,data:Fg+MLQ57VTTa4QCmqQ==,iv:GlJfcTN6T6ipM/7hOx2K5lH2yuGZxLGhe4UfeDIUBEY=,tag:7YtBppGIdF3bQ+iU9Np//g==,type:str]
+SVCNET: ENC[AES256_GCM,data:W/fC6vBnsjYTkBJnGw==,iv:gPcpZhBlw3rejzC9ik6coFyrQXDTEAIRIHwtRFAxKbE=,tag:cvFgKW35fWanHztCQVqkCw==,type:str]
+sops:
+    shamir_threshold: 3
+    age:
+        - recipient: age1jsx652ytdhm27d5h57wx6q727mdjnmc5rpcw6hlsgcntkyke3djsvutlch
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3OU1mMWoxZHVrQUh4eVc3
+            cVRyMkZ1ODNJTGNzV2FYMGpXS0lWSWgvV0dBCmtqekh3YlQ5TXBnNlhkZDNVeXli
+            NlZrRVFVM080OTRBTHRqTUN0bnVHeDAKLS0tIE5EOGx4Ti9hS21HWkwwU25QNEhs
+            akdPYmo1V25GR0dIQ1d3SnczU2wzNUkKFkLECB9QcBOF3d3PJCm0taXi493YWuk9
+            yS4kY16vblC2rwQyVxTDnjG5Ej5lQvq3iuZ5Rsk8DwUCrZRdHNGX4Q==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-04-14T23:17:12Z"
+    mac: ENC[AES256_GCM,data:IAE+9iCp0G8QoQav7wTMNFijMbyCv1PBQCPJZvYBCuyzcrALmRJKiV4llSdzULXOsYgFxYvMNM2XJK7e4kwAuLMpSl8/BvyQMWokvLKfWd8TLdgy0+cPWclyqlBdJm8/D/fa3P6G0t/3GLL4r6L4yMCKhMqpS07iir2T99wsAq8=,iv:MBBvnhe8nKmJrharwT5fbGFeh6Ck8gRL7mely4grm8A=,tag:faQ7u0JT2Bodw7Rh2CyieQ==,type:str]
+    version: 3.10.1
