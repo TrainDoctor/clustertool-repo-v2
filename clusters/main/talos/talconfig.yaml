@@ -1,8 +1,8 @@
 clusterName: ${CLUSTERNAME}
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.9.4
+talosVersion: v1.9.5
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
-kubernetesVersion: v1.32.2
+kubernetesVersion: v1.32.3
 endpoint: https://${VIP}:6443
 allowSchedulingOnControlPlanes: true
 additionalMachineCertSans:
@@ -20,7 +20,6 @@ cniConfig:
     name: none
 patches:
     - '@./patches/all.yaml'
-    - '@./patches/enable_user-namespaces.yaml'
 nodes:
     # We would adivce to always stick to a "k8s-something-1" style naming scheme
     - hostname: k8s-control-1
@@ -28,7 +27,7 @@ nodes:
       controlPlane: true
       nameservers:
         - 1.1.1.1
-        - 1.0.0.1
+        - 8.8.8.8
       installDiskSelector:
         size: <= 1600GB
       networkInterfaces:
@@ -41,34 +40,6 @@ nodes:
               gateway: ${GATEWAY}
           vip:
             ip: ${VIP}
-    - hostname: k8s-worker-1
-      ipAddress: ${WORKER1IP}
-      nameservers:
-        - 1.1.1.1
-        - 1.0.0.1
-      installDiskSelector:
-        size: <= 1600GB
-      schematic:
-          customization:
-              systemExtensions:
-                  officialExtensions:
-                      - siderolabs/amd-ucode
-                      - siderolabs/iscsi-tools
-                      - siderolabs/util-linux-tools
-    - hostname: k8s-worker-2
-      ipAddress: ${WORKER2IP}
-      nameservers:
-        - 1.1.1.1
-        - 1.0.0.1
-      installDiskSelector:
-        size: <= 1600GB
-      schematic:
-          customization:
-              systemExtensions:
-                  officialExtensions:
-                      - siderolabs/amd-ucode
-                      - siderolabs/iscsi-tools
-                      - siderolabs/util-linux-tools
 controlPlane:
     patches:
         - '@./patches/controlplane.yaml'
@@ -87,12 +58,7 @@ controlPlane:
                     - siderolabs/qemu-guest-agent
     machineFiles:
     - content: |
-        [plugins."io.containerd.grpc.v1.cri"]
-          enable_unprivileged_ports = true
-          enable_unprivileged_icmp = true
-        [plugins."io.containerd.grpc.v1.cri".containerd]
-          discard_unpacked_layers = false
-        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
+        [plugins."io.containerd.cri.v1.images"]
           discard_unpacked_layers = false
       permissions: 0
       path: /etc/cri/conf.d/20-customization.part
@@ -101,11 +67,8 @@ controlPlane:
         [ NFSMount_Global_Options ]
         nfsvers=4.2
         hard=True
+        nconnect=16
         noatime=True
-        nodiratime=True
-        rsize=131072
-        wsize=131072
-        nconnect=8
       permissions: 420
       path: /etc/nfsmount.conf
       op: overwrite
@@ -126,12 +89,7 @@ worker:
                     - siderolabs/qemu-guest-agent
     machineFiles:
     - content: |
-        [plugins."io.containerd.grpc.v1.cri"]
-          enable_unprivileged_ports = true
-          enable_unprivileged_icmp = true
-        [plugins."io.containerd.grpc.v1.cri".containerd]
-          discard_unpacked_layers = false
-        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
+        [plugins."io.containerd.cri.v1.images"]
           discard_unpacked_layers = false
       permissions: 0
       path: /etc/cri/conf.d/20-customization.part
@@ -140,11 +98,8 @@ worker:
         [ NFSMount_Global_Options ]
         nfsvers=4.2
         hard=True
+        nconnect=16
         noatime=True
-        nodiratime=True
-        rsize=131072
-        wsize=131072
-        nconnect=8
       permissions: 420
       path: /etc/nfsmount.conf
       op: overwrite
