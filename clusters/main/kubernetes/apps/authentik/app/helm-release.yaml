@@ -178,7 +178,8 @@ spec:
             # Server HTTP
             http:
               enabled: true
-              type: ClusterIP
+              sharedKey: custom-shared-key
+              loadBalancerIP: "${SERVICES_IP}"
               ports:
                 http:
                   enabled: true
