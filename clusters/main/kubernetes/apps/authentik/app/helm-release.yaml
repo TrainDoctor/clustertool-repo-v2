@@ -46,7 +46,7 @@ spec:
               - host: "*.${DOMAIN_0}"
                 paths:
                   - path: /outpost.goauthentik.io
-                    pathType: ImplementationSpecific
+                    pathType: Prefix
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}
