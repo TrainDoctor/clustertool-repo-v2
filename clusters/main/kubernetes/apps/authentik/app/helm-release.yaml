@@ -43,11 +43,10 @@ spec:
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
             hosts:
               - host: auth.${DOMAIN_0}
-                paths:
-                  - path: /
               - host: "*.${DOMAIN_0}"
                 paths:
                   - path: /outpost.goauthentik.io
+                    pathType: ImplementationSpecific
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}
