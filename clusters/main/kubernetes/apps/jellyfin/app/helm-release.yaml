@@ -142,6 +142,9 @@ spec:
           main:
             enabled: true
             ingressClassName: external
+            integrations:
+                traefik:
+                    enabled: false
             hosts:
                 - host: jf.${DOMAIN_0}
                   paths:
