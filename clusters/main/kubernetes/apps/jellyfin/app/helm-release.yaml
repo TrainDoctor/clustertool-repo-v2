@@ -139,10 +139,8 @@ spec:
                 replicas: 1
                 type: Deployment
         ingress:
+            ingressClassName: external
             main:
                 enabled: true
-                integrations:
-                  traefik:
-                    enabled: true
                 hosts:
                     - host: jf.${DOMAIN_0}
