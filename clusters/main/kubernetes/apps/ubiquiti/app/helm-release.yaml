@@ -36,12 +36,3 @@ spec:
                 paths:
                   - path: /
                     pathType: Prefix
-            integrations:
-              traefik:
-                enabled: false
-                # middlewares:
-                #   - name: auth
-                #     namespace: traefik
-              certManager:
-                enabled: true
-                certificateIssuer: domain-1-le-prod

@@ -35,12 +35,12 @@ spec:
                 paths:
                   - path: /
                     pathType: Prefix
-            integrations:
-              traefik:
-                enabled: false
-                middlewares:
-                  - name: auth-no-basic
-                    namespace: traefik
-              certManager:
-                enabled: true
-                certificateIssuer: domain-1-le-prod
+            # integrations:
+            #   traefik:
+            #     enabled: false
+            #     middlewares:
+            #       - name: auth-no-basic
+            #         namespace: traefik
+            #   certManager:
+            #     enabled: true
+            #     certificateIssuer: domain-1-le-prod

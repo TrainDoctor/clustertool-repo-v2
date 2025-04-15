@@ -41,18 +41,6 @@ spec:
                 paths:
                   - path: /
                     pathType: Prefix
-            integrations:
-              traefik:
-                enabled: false
-                entrypoints:
-                  - web
-                  - websecure
-                # middlewares:
-                #   - name: auth
-                #     namespace: traefik
-              certManager:
-                enabled: true
-                certificateIssuer: domain-1-le-prod
         metrics:
             main:
                 enabled: false
