@@ -31,7 +31,8 @@ spec:
           main:
             enabled: true
             ingressClassName: internal
-            traefik:
+            integrations:
+              traefik:
                 enabled: false
             hosts:
               - host: ub.${DOMAIN_0}

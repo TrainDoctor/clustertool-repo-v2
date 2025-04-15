@@ -68,7 +68,8 @@ spec:
           main:
             enabled: true
             ingressClassName: internal
-            traefik:
+            integrations:
+              traefik:
                 enabled: false
             hosts:
               - host: qb.${DOMAIN_0}
