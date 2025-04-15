@@ -45,7 +45,7 @@ spec:
                     pathType: Prefix
             integrations:
               traefik:
-                enabled: true
+                enabled: false
                 middlewares:
                   - name: auth
                     namespace: traefik

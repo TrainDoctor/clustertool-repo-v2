@@ -75,7 +75,7 @@ spec:
                     pathType: Prefix
             integrations:
               traefik:
-                enabled: true
+                enabled: false
                 entrypoints:
                   - web
                   - websecure

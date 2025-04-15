@@ -33,7 +33,7 @@ spec:
         ingress:
           main:
             enabled: true
-            ingressClassName: internal
+            ingressClassName: external
             hosts:
               - host: auth.${DOMAIN_0}
               - host: "*.${DOMAIN_0}"
@@ -42,7 +42,7 @@ spec:
                     pathType: Prefix
             integrations:
               traefik:
-                enabled: true
+                enabled: false
               certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}

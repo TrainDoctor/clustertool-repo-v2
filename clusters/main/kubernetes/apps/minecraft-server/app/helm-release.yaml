@@ -121,7 +121,7 @@ spec:
               - host: mc.${DOMAIN_0}
             integrations:
               traefik:
-                enabled: true
+                enabled: false
         workload:
          main:
            podSpec:
