@@ -31,6 +31,8 @@ spec:
           main:
             enabled: true
             ingressClassName: internal
+            traefik:
+                enabled: false
             hosts:
               - host: mc.${DOMAIN_0}
                 paths:

@@ -36,6 +36,8 @@ spec:
           main:
             enabled: true
             ingressClassName: internal
+            traefik:
+                enabled: false
             hosts:
               - host: rad.${DOMAIN_0}
                 paths:
