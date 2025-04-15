@@ -34,6 +34,9 @@ spec:
           main:
             enabled: true
             ingressClassName: internal
+            integrations:
+              traefik:
+                enabled: false
             annotations:
               nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
               nginx.ingress.kubernetes.io/ssl-passthrough: "true"
@@ -44,12 +47,6 @@ spec:
                 paths:
                   - path: /outpost.goauthentik.io
                     pathType: Prefix
-            integrations:
-              traefik:
-                enabled: false
-              certManager:
-                enabled: true
-                certificateIssuer: domain-1-le-prod
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}
