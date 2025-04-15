@@ -37,7 +37,7 @@ spec:
           # TODO: Maybe play with this
           # internal-dns.alpha.kubernetes.io/hostname: external.${DOMAIN_0}
           metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: ${NG_EXTERNAL_IP}
+          metallb.io/loadBalancerIPs: 192.168.0.224
       ingressClassByName: true
       watchIngressWithoutClass: false
       ingressClassResource:
