@@ -38,9 +38,9 @@ spec:
             integrations:
               traefik:
                 enabled: false
-                middlewares:
-                  - name: auth
-                    namespace: traefik
+                # middlewares:
+                #   - name: auth
+                #     namespace: traefik
               certManager:
                 enabled: true
                 certificateIssuer: ${CERT_ISSUER}
