@@ -37,7 +37,7 @@ spec:
           # TODO: Maybe play with this
           # internal-dns.alpha.kubernetes.io/hostname: internal.${DOMAIN_0}
           metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
+          metallb.io/loadBalancerIPs: ${NG_INTERNAL_IP}
       ingressClassByName: true
       watchIngressWithoutClass: true
       ingressClassResource:
@@ -70,7 +70,7 @@ spec:
         #     any: true
       extraArgs:
         default-ssl-certificate: "clusterissuer/certificate-issuer-domain-0-wildcard"
-        publish-status-address: ${NGINX_INTERNAL_IP}
+        publish-status-address: ${NG_INTERNAL_IP}
       terminationGracePeriodSeconds: 120
       publishService:
         enabled: false
