@@ -45,7 +45,7 @@ spec:
                 enabled: false
               certManager:
                 enabled: true
-                certificateIssuer: ${CERT_ISSUER}
+                certificateIssuer: domain-1-le-prod
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}
