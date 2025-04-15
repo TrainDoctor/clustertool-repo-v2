@@ -57,4 +57,4 @@ spec:
             #     namespace: traefik
           certManager:
             enabled: true
-            certificateIssuer: ${CERT_ISSUER}
+            certificateIssuer: domain-1-le-prod
