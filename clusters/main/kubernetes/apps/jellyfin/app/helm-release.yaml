@@ -139,11 +139,11 @@ spec:
                 replicas: 1
                 type: Deployment
         ingress:
-            main:
-                enabled: true
-                ingressClassName: external
-                hosts:
-                  - host: jf.${DOMAIN_0}
-                    paths:
-                      - path: /
-                        pathType: Prefix
+          main:
+            enabled: true
+            ingressClassName: external
+            hosts:
+                - host: jf.${DOMAIN_0}
+                  paths:
+                    - path: /
+                      pathType: Prefix

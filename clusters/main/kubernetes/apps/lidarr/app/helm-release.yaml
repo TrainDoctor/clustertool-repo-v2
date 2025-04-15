@@ -35,6 +35,7 @@ spec:
         ingress:
           main:
             enabled: true
+            ingressClassName: internal
             hosts:
               - host: lid.${DOMAIN_0}
                 paths:

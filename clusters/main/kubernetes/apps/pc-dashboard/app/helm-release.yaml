@@ -29,6 +29,7 @@ spec:
         ingress:
           main:
             enabled: true
+            ingressClassName: internal
             hosts:
               - host: pc.${DOMAIN_0}
                 paths:
