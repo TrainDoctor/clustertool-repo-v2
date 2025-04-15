@@ -45,7 +45,6 @@ spec:
               - host: auth.${DOMAIN_0}
                 paths:
                   - path: /
-                    pathType: Prefix
               - host: "*.${DOMAIN_0}"
                 paths:
                   - path: /outpost.goauthentik.io
