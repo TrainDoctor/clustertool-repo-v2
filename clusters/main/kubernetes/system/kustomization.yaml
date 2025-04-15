@@ -13,5 +13,3 @@ resources:
   - system-upgrade-controller/ks.yaml
   - traefik-crds/ks.yaml
   - volsync/ks.yaml
-  - kyverno/ks.yaml
-  - prometheus-operator/ks.yaml
