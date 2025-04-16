@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: protonmail-bridge
+  namespace: protonmail-bridge
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: protonmail-bridge
+      version: 16.10.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+  releaseName: protonmail-bridge
+  values:
+    TZ: America/Los_Angeles
+    addons:
+        codeserver:
+            enabled: false
+        netshoot:
+            enabled: false
+        vpn:
+            type: disabled
+    global:
+      stopAll: false
+    credentials:
+        protonmail-bridge:
+            name: protonmail-bridge
+            type: s3
+            url: ${VOLSYNC_S3_URL}
+            bucket: ${VOLSYNC_S3_BUCKET}
+            accessKey: ${VOLSYNC_S3_ACCESSKEY}
+            secretKey: ${VOLSYNC_S3_SECRETKEY}
+            encrKey: ${VOLSYNC_S3_ENCKEY}
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              probes:
+                liveness:
+                  type: tcp
+                  port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+                readiness:
+                  type: tcp
+                  port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+                startup:
+                  type: tcp
+                  port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: protonmail-bridge
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 20 0 * * *
