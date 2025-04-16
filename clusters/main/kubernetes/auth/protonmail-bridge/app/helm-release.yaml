@@ -35,6 +35,34 @@ spec:
             accessKey: ${VOLSYNC_S3_ACCESSKEY}
             secretKey: ${VOLSYNC_S3_SECRETKEY}
             encrKey: ${VOLSYNC_S3_ENCKEY}
+    service:
+        main:
+          enabled: false
+          ports:
+            main:
+              enabled: false
+        smtp:
+          enabled: true
+          primary: true
+          sharedKey: custom-shared-key
+          loadBalancerIP: "${UTILITY_TOOLS_IP}"
+          ports:
+            smtp:
+              enabled: true
+              primary: true
+              port: 25
+              protocol: tcp
+              targetPort: 25
+        imap:
+          enabled: true
+          sharedKey: custom-shared-key
+          loadBalancerIP: "${UTILITY_TOOLS_IP}"
+          ports:
+            imap:
+              enabled: true
+              port: 143
+              protcol: tcp
+              targetPort: 143
     workload:
       main:
         podSpec:
