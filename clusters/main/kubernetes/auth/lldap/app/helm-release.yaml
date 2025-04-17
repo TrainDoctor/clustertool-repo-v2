@@ -50,7 +50,7 @@ spec:
               enabled: true
               certificateIssuer: domain-1-le-prod
           hosts:
-            - host: lldap.${DOMAIN_1}
+            - host: lldap.${DOMAIN_0}
               paths:
                 - path: /
                   pathType: Prefix
