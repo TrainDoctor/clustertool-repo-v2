@@ -31,13 +31,14 @@ spec:
     global:
       stopAll: true
     credentials:
-      minio:
+      authelia:
+          name: authelia
           type: s3
-          url: "https://${S3_URL_MINIO}"
-          bucket: "${S3_BUCKET}-authelia"
-          accessKey: "${S3_ACCESS_KEY}"
-          secretKey: "${S3_SECRET_KEY}"
-          encrKey: "${S3_ENCRYPTION_KEY}"
+          url: ${VOLSYNC_S3_URL}
+          bucket: ${VOLSYNC_S3_BUCKET}
+          accessKey: ${VOLSYNC_S3_ACCESSKEY}
+          secretKey: ${VOLSYNC_S3_SECRETKEY}
+          encrKey: ${VOLSYNC_S3_ENCKEY}
     ingress:
         main:
           enabled: true
@@ -49,7 +50,7 @@ spec:
               enabled: true
               certificateIssuer: domain-1-le-prod
           hosts:
-            - host: auth.${DOMAIN_1}
+            - host: auth.${DOMAIN_0}
               paths:
                 - path: /
                   pathType: Prefix
@@ -60,7 +61,7 @@ spec:
           singleNode: true
         backups:
           enabled: true
-          credentials: minio
+          credentials: authelia
           scheduledBackups:
             - name: daily-backup
               schedule: "0 5 0 * * *"
@@ -75,7 +76,7 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: minio
+            credentials: authelia
             dest:
               enabled: true
             src:
@@ -95,12 +96,12 @@ spec:
     authelia:
       theme: auto
       totp:
-        issuer: ${DOMAIN_1}
+        issuer: ${DOMAIN_0}
       authentication_backend:
         ldap:
           address: ldap://lldap-ldap.lldap.svc.cluster.local:3890
           tls:
-            server_name: lldap.${DOMAIN_1}
+            server_name: lldap.${DOMAIN_0}
           base_dn: DC=${DN},DC=${DC}
           attributes:
             username: uid
@@ -113,26 +114,26 @@ spec:
       access_control:
         rules:
         - domain:
-            - ${DOMAIN_1}
-            - '*.${DOMAIN_1}'
+            - ${DOMAIN_0}
+            - '*.${DOMAIN_0}'
           policy: two_factor
           subject:
             - 'group:admin'
       session:
         cookies:
-          - domain: '${DOMAIN_1}'
-            authelia_url: 'https://auth.${DOMAIN_1}'
+          - domain: '${DOMAIN_0}'
+            authelia_url: 'https://auth.${DOMAIN_0}'
             default_redirection_url: 'https://www.${DOMAIN_1}'
       regulation:
         find_time: 10m
         ban_time: 12h
-      notifier:
-        smtp:
-          address: 'smtp://${SMTP_HOST}:587'
-          username: ${SMTP_USER}
-          password: ${SMTP_PASSWORD_AUTHELIA}
-          sender: auth@${DOMAIN_1}
-          startup_check_address: auth@${DOMAIN_1}
-          disable_html_emails: true
-          tls:
-            server_name: ${SMTP_HOST}
+      # notifier:
+      #   smtp:
+      #     address: 'smtp://${SMTP_HOST}:587'
+      #     username: ${SMTP_USER}
+      #     password: ${SMTP_PASSWORD_AUTHELIA}
+      #     sender: auth@${DOMAIN_1}
+      #     startup_check_address: auth@${DOMAIN_1}
+      #     disable_html_emails: true
+      #     tls:
+      #       server_name: ${SMTP_HOST}
