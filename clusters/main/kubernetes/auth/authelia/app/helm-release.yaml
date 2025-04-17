@@ -103,7 +103,7 @@ spec:
         - domain:
             - ${DOMAIN_0}
             - '*.${DOMAIN_0}'
-          policy: two_factor
+          policy: one_factor
           subject:
             - 'group:admin'
       session:
