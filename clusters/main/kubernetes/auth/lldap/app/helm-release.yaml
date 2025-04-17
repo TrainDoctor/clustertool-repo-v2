@@ -81,7 +81,7 @@ spec:
         cluster:
           singleNode: false
         backups:
-          enabled: true
+          enabled: false
           credentials: lldap
           scheduledBackups:
             - name: daily-backup
