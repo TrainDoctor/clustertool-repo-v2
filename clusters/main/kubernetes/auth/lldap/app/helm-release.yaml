@@ -77,21 +77,20 @@ spec:
                 LLDAP_key_file: /data/private_key
     cnpg:
       main:
-        mode: recovery
         cluster:
           singleNode: false
         backups:
           enabled: false
           credentials: lldap
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 5 0 * * *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false
-        recovery:
-          method: object_store
-          credentials: lldap
+          # scheduledBackups:
+          #   - name: daily-backup
+          #     schedule: "0 5 0 * * *"
+          #     backupOwnerReference: self
+          #     immediate: true
+          #     suspend: false
+        # recovery:
+        #   method: object_store
+        #   credentials: lldap
     persistence:
       data:
         volsync:
