@@ -123,7 +123,7 @@ spec:
         cookies:
           - domain: '${DOMAIN_0}'
             authelia_url: 'https://auth.${DOMAIN_0}'
-            default_redirection_url: 'https://www.${DOMAIN_1}'
+            default_redirection_url: 'https://www.${DOMAIN_0}'
       regulation:
         find_time: 10m
         ban_time: 12h
