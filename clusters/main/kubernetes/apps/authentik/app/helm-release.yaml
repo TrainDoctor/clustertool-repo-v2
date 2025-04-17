@@ -34,7 +34,7 @@ spec:
                 encrKey: ${VOLSYNC_S3_ENCKEY}
         ingress:
           main:
-            enabled: false
+            enabled: true
             ingressClassName: external
             integrations:
               traefik:
