@@ -145,3 +145,4 @@ spec:
           disable_html_emails: true
           tls:
             server_name: protonmail-bridge.protonmail-bridge.svc.cluster.local
+            skip_verify: true
