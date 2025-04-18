@@ -136,5 +136,12 @@ spec:
         find_time: 10m
         ban_time: 12h
       notifier:
-        filesystem:
-          filename: '/config/notification.txt'
+        smtp:
+          address: 'smtp://protonmail-bridge.protonmail-bridge.svc.cluster.local:1025'
+          username: ${SMTP_USER}
+          password: ${SMTP_PASSWORD_AUTHELIA}
+          sender: admin@${DOMAIN_0}
+          startup_check_address: auth@${DOMAIN_0}
+          disable_html_emails: true
+          tls:
+            server_name: protonmail-bridge.protonmail-bridge.svc.cluster.local
