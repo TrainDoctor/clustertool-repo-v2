@@ -41,7 +41,7 @@ spec:
             encrKey: ${VOLSYNC_S3_ENCKEY}
     ingress:
         main:
-          ingressClassName: internal
+          ingressClassName: external
           enabled: true
           integrations:
             traefik:
@@ -49,6 +49,11 @@ spec:
             certManager:
               enabled: true
               certificateIssuer: domain-1-le-prod
+          annotations:
+            nginx.ingress.kubernetes.io/auth-method: 'GET'
+            nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
+            nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
+            nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
           hosts:
             - host: lldap.${DOMAIN_0}
               paths:
@@ -77,17 +82,17 @@ spec:
     cnpg:
       main:
         backups:
-          enabled: false
+          enabled: true
           credentials: lldap
-          # scheduledBackups:
-          #   - name: daily-backup
-          #     schedule: "0 5 0 * * *"
-          #     backupOwnerReference: self
-          #     immediate: true
-          #     suspend: false
-        # recovery:
-        #   method: object_store
-        #   credentials: lldap
+          scheduledBackups:
+            - name: daily-backup
+              schedule: "0 5 0 * * *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
+        recovery:
+          method: object_store
+          credentials: lldap
     persistence:
       data:
         volsync:

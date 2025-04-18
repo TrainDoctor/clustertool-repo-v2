@@ -117,16 +117,17 @@ spec:
           - "^/meshrelay.*$"
           - "^/wl.*$"
         - domain:
+            - 'lldap.${DOMAIN_0}'
             - 'kube.${DOMAIN_0}'
           policy: two_factor
           subject:
             - 'group:admin'
         - domain:
-            - ${DOMAIN_0}
-            - 'auth.${DOMAIN_0}'
-          policy: one_factor
+            - 'son.${DOMAIN_0}'
+          policy: two_factor
           subject:
             - 'group:admin'
+            - 'group:users'
       session:
         cookies:
           - domain: '${DOMAIN_0}'
