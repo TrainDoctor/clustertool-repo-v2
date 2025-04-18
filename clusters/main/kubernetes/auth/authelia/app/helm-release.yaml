@@ -117,14 +117,8 @@ spec:
           - "^/meshrelay.*$"
           - "^/wl.*$"
         - domain:
-            - 'lldap.${DOMAIN_0}'
-            - 'kube.${DOMAIN_0}'
-            - 'pc.${DOMAIN_0}'
-            - 'ub.${DOMAIN_0}'
-            - 'true.${DOMAIN_0}'
-            - 'sync.${DOMAIN_0}'
-            - 'steam.${DOMAIN_0}'
-            - 'qb.${DOMAIN_0}'
+            - "${DOMAIN_0}"
+            - "*.${DOMAIN_0}"
           policy: two_factor
           subject:
             - 'group:admin'
@@ -133,12 +127,10 @@ spec:
             - 'lid.${DOMAIN_0}'
             - 'req.${DOMAIN_0}'
             - 'read.${DOMAIN_0}'
-            - 'prox.${DOMAIN_0}'
             - 'prow.${DOMAIN_0}'
             - 'son.${DOMAIN_0}'
           policy: two_factor
           subject:
-            - 'group:admin'
             - 'group:users'
         - domain:
             - 'lldap.${DOMAIN_0}'
@@ -167,7 +159,7 @@ spec:
           password: ${SMTP_PASSWORD_AUTHELIA}
           sender: admin@${DOMAIN_0}
           startup_check_address: admin@${DOMAIN_0}
-          disable_html_emails: true
+          disable_html_emails: false
           tls:
             server_name: protonmail-bridge.protonmail-bridge.svc.cluster.local
             skip_verify: true
