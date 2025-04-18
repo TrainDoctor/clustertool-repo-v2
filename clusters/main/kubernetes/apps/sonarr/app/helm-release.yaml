@@ -80,7 +80,7 @@ spec:
                 UMASK: "0022"
                 privileged: false
                 readOnlyRootFilesystem: true
-                runAsGroup: ${MEDIA_GROUP}
+                runAsGroup: ${MEDIA_GROUP}  
                 runAsUser: ${MEDIA_USER}
             pod:
                 fsGroupChangePolicy: OnRootMismatch
@@ -96,5 +96,10 @@ spec:
         updated: true
         workload:
             main:
+                podSpec:
+                    containers:
+                        main:
+                            env:
+                                SONARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment
