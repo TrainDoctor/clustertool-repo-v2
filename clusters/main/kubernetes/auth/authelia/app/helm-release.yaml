@@ -50,6 +50,7 @@ spec:
               enabled: true
               certificateIssuer: domain-1-le-prod
           hosts:
+            - host: ${DOMAIN_0}
             - host: auth.${DOMAIN_0}
               paths:
                 - path: /
@@ -80,10 +81,11 @@ spec:
               env:
                 AUTHELIA_SESSION_SECRET: ${AUTHELIA_SESSION_KEY}
                 AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET: ${AUTHELIA_JWT_KEY}
-                AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_ENCRYPTION_KEY}
+                # AUTHELIA_STORAGE_ENCRYPTION_KEY: ${AUTHELIA_ENCRYPTION_KEY}
     authelia:
       theme: auto
       totp:
+        disable: false
         issuer: ${DOMAIN_0}
       authentication_backend:
         ldap:
@@ -115,6 +117,11 @@ spec:
           - "^/meshrelay.*$"
           - "^/wl.*$"
         - domain:
+            - 'kube.${DOMAIN_0}'
+          policy: two_factor
+          subject:
+            - 'group:admin'
+        - domain:
             - ${DOMAIN_0}
             - 'auth.${DOMAIN_0}'
           policy: one_factor
@@ -124,7 +131,7 @@ spec:
         cookies:
           - domain: '${DOMAIN_0}'
             authelia_url: 'https://auth.${DOMAIN_0}'
-            default_redirection_url: 'https://auth.${DOMAIN_0}'
+            default_redirection_url: 'https://${DOMAIN_0}'
       regulation:
         find_time: 10m
         ban_time: 12h
