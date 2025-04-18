@@ -100,9 +100,22 @@ spec:
           password: ${LLDAP_PASSWORD}
       access_control:
         rules:
+        - domain: "*.${DOMAIN_0}"
+          policy: bypass
+          resources:
+          - "^/api([/?].*)?$"
+          - "^/api([/?].*)?$"
+          - "^/identity.*$"
+          - "^/triggers.*$"
+          - "^/meshagents.*$"
+          - "^/meshsettings.*$"
+          - "^/agent.*$"
+          - "^/control.*$"
+          - "^/meshrelay.*$"
+          - "^/wl.*$"
         - domain:
             - ${DOMAIN_0}
-            - '*.${DOMAIN_0}'
+            - 'auth.${DOMAIN_0}'
           policy: one_factor
           subject:
             - 'group:admin'
