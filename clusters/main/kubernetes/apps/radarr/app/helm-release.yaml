@@ -92,5 +92,10 @@ spec:
         updated: true
         workload:
             main:
+              podSpec:
+                containers:
+                    main:
+                      env:
+                        READARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment

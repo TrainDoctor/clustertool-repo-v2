@@ -86,5 +86,10 @@ spec:
         updated: true
         workload:
             main:
+              podSpec:
+                containers:
+                    main:
+                      env:
+                        PROWLARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment

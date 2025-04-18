@@ -93,5 +93,10 @@ spec:
         updated: true
         workload:
             main:
+              podSpec:
+                containers:
+                    main:
+                      env:
+                        LIDARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment
