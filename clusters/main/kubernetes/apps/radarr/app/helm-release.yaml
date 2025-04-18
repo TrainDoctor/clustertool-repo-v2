@@ -96,6 +96,6 @@ spec:
                 containers:
                     main:
                       env:
-                        READARR__AUTH__METHOD: "External"
+                        RADARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment
