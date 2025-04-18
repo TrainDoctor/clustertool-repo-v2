@@ -93,13 +93,12 @@ spec:
                     main:
                         port: 8989
                 type: LoadBalancer
-        updated: true
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            env:
-                                SONARR__AUTH__METHOD: "External"
+              podSpec:
+                containers:
+                    main:
+                      env:
+                        SONARR__AUTH__METHOD: "External"
                 replicas: 1
                 type: Deployment
