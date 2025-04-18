@@ -141,7 +141,7 @@ spec:
           username: ${SMTP_USER}
           password: ${SMTP_PASSWORD_AUTHELIA}
           sender: admin@${DOMAIN_0}
-          startup_check_address: auth@${DOMAIN_0}
+          startup_check_address: admin@${DOMAIN_0}
           disable_html_emails: true
           tls:
             server_name: protonmail-bridge.protonmail-bridge.svc.cluster.local
