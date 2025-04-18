@@ -16,7 +16,7 @@ spec:
     releaseName: authentik
     values:
         global:
-          stopAll: false
+          stopAll: true
         TZ: America/Los_Angeles
         addons:
             codeserver:
@@ -35,7 +35,7 @@ spec:
         ingress:
           main:
             enabled: true
-            ingressClassName: external
+            ingressClassName: internal
             integrations:
               traefik:
                 enabled: false
@@ -49,6 +49,16 @@ spec:
               #   paths:
               #     - path: /outpost.goauthentik.io
               #       pathType: Prefix
+          authentik-http:
+            enabled: true
+            ingressClassName: internal
+            integrations:
+              traefik:
+                enabled: false
+            annotations:
+              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}
