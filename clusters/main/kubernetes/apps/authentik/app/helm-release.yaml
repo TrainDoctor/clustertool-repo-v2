@@ -16,7 +16,7 @@ spec:
     releaseName: authentik
     values:
         global:
-          stopAll: true
+          stopAll: false
         TZ: America/Los_Angeles
         addons:
             codeserver:
@@ -44,11 +44,11 @@ spec:
               nginx.ingress.kubernetes.io/ssl-passthrough: "true"
               nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
             hosts:
-              - host: auth.${DOMAIN_0}
-              - host: "*.${DOMAIN_0}"
-                paths:
-                  - path: /outpost.goauthentik.io
-                    pathType: Prefix
+              - host: oldauth.${DOMAIN_0}
+              # - host: "*.${DOMAIN_0}"
+              #   paths:
+              #     - path: /outpost.goauthentik.io
+              #       pathType: Prefix
         authentik:
           credentials:
             email: ${AUTH_INSTALL_EMAIL}

@@ -35,10 +35,15 @@ spec:
         ingress:
           main:
             enabled: true
-            ingressClassName: internal
+            ingressClassName: external
             integrations:
               traefik:
                 enabled: false
+            annotations:
+              nginx.ingress.kubernetes.io/auth-method: 'GET'
+              nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
+              nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
+              nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
             hosts:
               - host: sync.${DOMAIN_0}
                 paths:
@@ -48,8 +53,6 @@ spec:
             config:
                 enabled: true
                 mountPath: /var/syncthing
-                readOnly: false
-                storageClass: ""
                 volsync:
                     - credentials: syncthing
                       dest:

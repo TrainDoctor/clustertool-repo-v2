@@ -119,14 +119,38 @@ spec:
         - domain:
             - 'lldap.${DOMAIN_0}'
             - 'kube.${DOMAIN_0}'
+            - 'pc.${DOMAIN_0}'
+            - 'ub.${DOMAIN_0}'
+            - 'true.${DOMAIN_0}'
+            - 'sync.${DOMAIN_0}'
+            - 'steam.${DOMAIN_0}'
+            - 'qb.${DOMAIN_0}'
           policy: two_factor
           subject:
             - 'group:admin'
         - domain:
             - 'son.${DOMAIN_0}'
+            - 'lid.${DOMAIN_0}'
+            - 'req.${DOMAIN_0}'
+            - 'read.${DOMAIN_0}'
+            - 'prox.${DOMAIN_0}'
+            - 'prow.${DOMAIN_0}'
+            - 'son.${DOMAIN_0}'
           policy: two_factor
           subject:
             - 'group:admin'
+            - 'group:users'
+        - domain:
+            - 'lldap.${DOMAIN_0}'
+            - 'kube.${DOMAIN_0}'
+            - 'pc.${DOMAIN_0}'
+            - 'ub.${DOMAIN_0}'
+            - 'true.${DOMAIN_0}'
+            - 'sync.${DOMAIN_0}'
+            - 'steam.${DOMAIN_0}'
+            - 'qb.${DOMAIN_0}'
+          policy: deny
+          subject:
             - 'group:users'
       session:
         cookies:
