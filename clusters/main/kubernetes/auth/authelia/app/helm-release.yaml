@@ -137,7 +137,7 @@ spec:
         ban_time: 12h
       notifier:
         smtp:
-          address: 'smtp://protonmail-bridge.protonmail-bridge.svc.cluster.local:1025'
+          address: 'smtp://protonmail-bridge.protonmail-bridge.svc.cluster.local:25'
           username: ${SMTP_USER}
           password: ${SMTP_PASSWORD_AUTHELIA}
           sender: admin@${DOMAIN_0}
