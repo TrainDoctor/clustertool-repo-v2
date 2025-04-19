@@ -49,10 +49,6 @@ spec:
             certManager:
               enabled: true
               certificateIssuer: domain-1-le-prod
-          annotations:
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-              nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-              nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
           hosts:
             - host: ${DOMAIN_0}
             - host: auth.${DOMAIN_0}
