@@ -117,22 +117,6 @@ spec:
           - "^/meshrelay.*$"
           - "^/wl.*$"
         - domain:
-            - "${DOMAIN_0}"
-            - "*.${DOMAIN_0}"
-          policy: two_factor
-          subject:
-            - 'group:admin'
-        - domain:
-            - 'son.${DOMAIN_0}'
-            - 'lid.${DOMAIN_0}'
-            - 'req.${DOMAIN_0}'
-            - 'read.${DOMAIN_0}'
-            - 'prow.${DOMAIN_0}'
-            - 'son.${DOMAIN_0}'
-          policy: two_factor
-          subject:
-            - 'group:users'
-        - domain:
             - 'lldap.${DOMAIN_0}'
             - 'kube.${DOMAIN_0}'
             - 'pc.${DOMAIN_0}'
@@ -142,6 +126,23 @@ spec:
             - 'steam.${DOMAIN_0}'
             - 'qb.${DOMAIN_0}'
           policy: deny
+          subject:
+            - 'group:users'
+        - domain:
+            - "${DOMAIN_0}"
+            - "*.${DOMAIN_0}"
+          policy: two_factor
+          subject:
+            - 'group:admin'
+            - 'group:users'
+        - domain:
+            - 'son.${DOMAIN_0}'
+            - 'lid.${DOMAIN_0}'
+            - 'req.${DOMAIN_0}'
+            - 'read.${DOMAIN_0}'
+            - 'prow.${DOMAIN_0}'
+            - 'son.${DOMAIN_0}'
+          policy: two_factor
           subject:
             - 'group:users'
       session:
