@@ -18,7 +18,6 @@ resources:
   - steam-headless/ks.yaml
   - syncthing/ks.yaml
   - wg-easy/ks.yaml
-  - authentik/ks.yaml
   - ubiquiti/ks.yaml
   - proxmox-dashboard/ks.yaml
   - truenas-dashboard/ks.yaml
