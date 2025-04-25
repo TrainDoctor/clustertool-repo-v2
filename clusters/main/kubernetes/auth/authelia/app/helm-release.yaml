@@ -118,6 +118,13 @@ spec:
             - "^/meshrelay.*$"
             - "^/wl.*$"
           - domain:
+              - "${DOMAIN_0}"
+              - "*.${DOMAIN_0}"
+            policy: two_factor
+            subject:
+              - 'group:admin'
+              - 'user:admin'
+          - domain:
               - "lldap.${DOMAIN_0}"
               - "kube.${DOMAIN_0}"
               - "pc.${DOMAIN_0}"
@@ -128,13 +135,6 @@ spec:
               - "qb.${DOMAIN_0}"
             policy: deny
             subject:
-              - 'group:users'
-          - domain:
-              - "${DOMAIN_0}"
-              - "*.${DOMAIN_0}"
-            policy: two_factor
-            subject:
-              - 'group:admin'
               - 'group:users'
           - domain:
               - "son.${DOMAIN_0}"
