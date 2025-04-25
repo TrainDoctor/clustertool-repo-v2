@@ -67,6 +67,25 @@
                 "type/major",
                 "system-upgrade"
             ]
+        },
+        {
+            "description": [
+                "Block automerge for authelia"
+            ],
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch"
+            ],
+            "dependencyDashboardApproval": true,
+            "matchPackageNames": [
+                "authelia"
+            ],
+            "labels": [
+                "type/major",
+                "type/minor",
+                "type/patch"
+            ]
         }
     ]
 }
