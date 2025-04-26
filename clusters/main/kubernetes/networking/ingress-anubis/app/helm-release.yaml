@@ -13,7 +13,7 @@ spec:
       version: 0.1.2
       sourceRef:
         kind: HelmRepository
-        name: home-ops-mirror
+        name: ingress-anubis
         namespace: flux-system
       interval: 15m
   timeout: 20m
