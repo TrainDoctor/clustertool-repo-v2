@@ -16,4 +16,4 @@ spec:
     # exclude all
     /*
     # # include flux directories
-    # !/repositories
+    !/deploy/charts/
