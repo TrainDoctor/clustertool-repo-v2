@@ -12,7 +12,7 @@ spec:
       chart: ingress-anubis
       version: 0.1.2
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: ingress-anubis
         namespace: flux-system
       interval: 15m
