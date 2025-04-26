@@ -39,4 +39,3 @@ spec:
         ANNOTATIONS: |
           metallb.io/ip-allocated-from-pool: main
           metallb.io/loadBalancerIPs: 192.168.0.225
-        INGRESS_CLASS_NAME: "nginx"

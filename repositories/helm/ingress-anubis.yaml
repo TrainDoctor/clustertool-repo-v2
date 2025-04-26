@@ -7,4 +7,4 @@ metadata:
 spec:
   type: oci
   interval: 2h
-  url: oci://ghcr.io/jaredallard/helm-charts/ingress-anubis
+  url: oci://ghcr.io/jaredallard/helm-charts
