@@ -133,6 +133,7 @@ spec:
               - "sync.${DOMAIN_0}"
               - "steam.${DOMAIN_0}"
               - "qb.${DOMAIN_0}"
+              - "ck.${DOMAIN_0}"
             policy: deny
             subject:
               - 'group:users'

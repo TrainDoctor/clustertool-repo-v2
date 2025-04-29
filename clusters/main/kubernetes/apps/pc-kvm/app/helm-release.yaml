@@ -1,8 +1,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-    name: pc-dashboard
-    namespace: pc-dashboard
+    name: pc-kvm
+    namespace: pc-kvm
 spec:
     interval: 15m
     chart:
@@ -13,19 +13,18 @@ spec:
                 kind: HelmRepository
                 name: truecharts
                 namespace: flux-system
-    releaseName: pc-dashboard
+    releaseName: pc-kvm
     values:
         service:
             main:
               type: ExternalIP
-              appProtocol: https
-              externalIP: "${PC_IP}"
+              appProtocol: http
+              externalIP: "${KVM_IP}"
               useSlice: false
               ports:
                 main:
                   enabled: true
-                  port: 9090
-                  protocol: https
+                  port: 80
         ingress:
           main:
             enabled: true
@@ -34,13 +33,12 @@ spec:
               traefik:
                 enabled: false
             annotations:
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
               nginx.ingress.kubernetes.io/auth-method: 'GET'
               nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
               nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
               nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email'
             hosts:
-              - host: ck.${DOMAIN_0}
+              - host: pc.${DOMAIN_0}
                 paths:
                   - path: /
                     pathType: Prefix
