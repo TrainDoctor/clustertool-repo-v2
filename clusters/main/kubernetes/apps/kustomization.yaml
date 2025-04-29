@@ -24,5 +24,4 @@ resources:
   - pc-dashboard/ks.yaml
   - minecraft-server/ks.yaml
   - craftycontroller-dashboard/ks.yaml
-  - authentik/ks.yaml
   - pc-kvm/ks.yaml
