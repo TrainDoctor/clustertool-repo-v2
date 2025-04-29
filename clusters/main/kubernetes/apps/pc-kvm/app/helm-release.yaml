@@ -18,7 +18,7 @@ spec:
         service:
             main:
               type: ExternalIP
-              appProtocol: https
+              appProtocol: http
               externalIP: "${KVM_IP}"
               useSlice: false
               ports:
@@ -34,7 +34,6 @@ spec:
               traefik:
                 enabled: false
             annotations:
-              nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
               nginx.ingress.kubernetes.io/auth-method: 'GET'
               nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
               nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
