@@ -85,8 +85,6 @@ spec:
             config:
                 enabled: true
                 mountPath: /config
-                readOnly: false
-                storageClass: ""
                 volsync:
                     - credentials: qbittorrent
                       dest:
