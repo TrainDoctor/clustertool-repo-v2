@@ -116,6 +116,7 @@ spec:
             - "^/agent.*$"
             - "^/control.*$"
             - "^/meshrelay.*$"
+            - "^/feed([/?].)$"
             - "^/wl.*$"
           - domain:
               - "${DOMAIN_0}"
