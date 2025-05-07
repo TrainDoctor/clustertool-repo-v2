@@ -109,6 +109,8 @@ spec:
             resources:
             - "^/api([/?].*)?$"
             - "^/api([/?].*)?$"
+            - "^?apikey([=].*)?$"
+            - "^?apiKey([=].*)?$"
             - "^/identity.*$"
             - "^/triggers.*$"
             - "^/meshagents.*$"
