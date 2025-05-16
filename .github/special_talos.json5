@@ -98,7 +98,7 @@
             ],
             "dependencyDashboardApproval": true,
             "matchPackageNames": [
-                "cilium"
+                "ghcr.io/home-operations/charts-mirror/cilium"
             ],
             "labels": [
                 "type/major",
