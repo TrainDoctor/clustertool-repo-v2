@@ -86,6 +86,25 @@
                 "type/minor",
                 "type/patch"
             ]
+        },
+        {
+            "description": [
+                "Block automerge for cilium"
+            ],
+            "matchUpdateTypes": [
+                "major",
+                "minor",
+                "patch"
+            ],
+            "dependencyDashboardApproval": true,
+            "matchPackageNames": [
+                "cilium"
+            ],
+            "labels": [
+                "type/major",
+                "type/minor",
+                "type/patch"
+            ]
         }
     ]
 }
