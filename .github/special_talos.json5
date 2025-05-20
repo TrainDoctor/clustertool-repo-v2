@@ -96,7 +96,7 @@
                 "minor",
                 "patch"
             ],
-            "dependencyDashboardApproval": true,
+            "automerge": false,
             "matchPackageNames": [
                 "ghcr.io/home-operations/charts-mirror/cilium"
             ],
