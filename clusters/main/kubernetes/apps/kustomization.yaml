@@ -26,3 +26,4 @@ resources:
   - craftycontroller-dashboard/ks.yaml
   - pc-kvm/ks.yaml
   - bazarr/ks.yaml
+  - tubesync/ks.yaml
