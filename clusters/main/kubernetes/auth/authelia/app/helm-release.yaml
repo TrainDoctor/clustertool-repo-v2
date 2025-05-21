@@ -147,6 +147,7 @@ spec:
               - "read.${DOMAIN_0}"
               - "prow.${DOMAIN_0}"
               - "rad.${DOMAIN_0}"
+              - "baz.${DOMAIN_0}"
             policy: two_factor
             subject:
               - 'group:users'
