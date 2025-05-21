@@ -25,3 +25,4 @@ resources:
   - minecraft-server/ks.yaml
   - craftycontroller-dashboard/ks.yaml
   - pc-kvm/ks.yaml
+  - bazarr/ks.yaml
