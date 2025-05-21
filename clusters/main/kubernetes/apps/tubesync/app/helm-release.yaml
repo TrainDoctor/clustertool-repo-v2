@@ -1,0 +1,101 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: tubesync
+    namespace: tubesync
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: tubesync
+            version: 7.5.52
+            sourceRef:
+                kind: HelmRepository
+                name: truecharts
+                namespace: flux-system
+    releaseName: tubesync
+    values:
+        TZ: America/Los_Angeles
+        addons:
+            codeserver:
+                enabled: false
+            netshoot:
+                enabled: false
+            vpn:
+                type: disabled
+        autodiscovery:
+            enabled: true
+        credentials:
+            tubesync:
+                name: tubesync
+                type: s3
+                url: ${VOLSYNC_S3_URL}
+                bucket: ${VOLSYNC_S3_BUCKET}
+                accessKey: ${VOLSYNC_S3_ACCESSKEY}
+                secretKey: ${VOLSYNC_S3_SECRETKEY}
+                encrKey: ${VOLSYNC_S3_ENCKEY}
+        persistence:
+            config:
+                volsync:
+                    - credentials: tubesync
+                      dest:
+                        enabled: true
+                      name: cfg
+                      src:
+                        enabled: true
+                      type: restic
+                mountPath: /config
+            media-vol:
+                enabled: true
+                type: nfs
+                mountPath: /downloads
+                path: /mnt/PoolTwo/data/media/youtube/
+                server: ${MEDIA_LOCAL_NAS_IP}
+        release_name: tubesync
+        resources: {}
+        securityContext:
+            container:
+                UMASK: "0022"
+                readOnlyRootFilesystem: false
+                runAsGroup: ${MEDIA_GROUP}
+                runAsUser: ${MEDIA_USER}
+                hostNetwork: false
+            pod:
+                fsGroupChangePolicy: OnRootMismatch
+        service:
+            main:
+                enabled: true
+                sharedKey: custom-shared-key
+                loadBalancerIP: "${PLAYBACK_IP}"
+                ports:
+                    main:
+                        port: 4848
+                        targetPort: 4848
+                type: LoadBalancer
+        updated: true
+        workload:
+            main:
+                podSpec:
+                    containers:
+                        main:
+                        env:
+                            DATABASE_CONNECTION: ""
+                            http_PASS: ""
+                            http_USER: ""
+                            TUBESYNC_DEBUG: "False"
+                            TUBESYNC_HOSTS: ""
+                            TUBESYNC_WORKERS: "2"
+                replicas: 1
+                type: Deployment
+        ingress:
+          main:
+            enabled: true
+            ingressClassName: external
+            integrations:
+                traefik:
+                    enabled: false
+            hosts:
+                - host: tube.${DOMAIN_0}
+                  paths:
+                    - path: /
+                      pathType: Prefix
