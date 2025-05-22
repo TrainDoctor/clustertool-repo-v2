@@ -78,13 +78,13 @@ spec:
                 podSpec:
                     containers:
                         main:
-                        env:
-                            DATABASE_CONNECTION: ""
-                            http_PASS: ""
-                            http_USER: ""
-                            TUBESYNC_DEBUG: "False"
-                            TUBESYNC_HOSTS: ""
-                            TUBESYNC_WORKERS: "2"
+                            env:
+                                DATABASE_CONNECTION: ""
+                                http_PASS: ""
+                                http_USER: ""
+                                TUBESYNC_DEBUG: "False"
+                                TUBESYNC_HOSTS: ""
+                                TUBESYNC_WORKERS: "2"
                 replicas: 1
                 type: Deployment
         ingress:
