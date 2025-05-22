@@ -114,7 +114,7 @@ spec:
                 # Disabling the admin token will make the admin portal accessible to anyone, use carefully: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-admin-token
                 disableAdminToken: false
                 ## Token for admin login, will be generated if not defined. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-admin-page
-                token: ${VAULT_ADMIN_TOKEN}
+                token: "${VAULT_ADMIN_TOKEN}"
             # Enable SMTP. https://github.com/dani-garcia/bitwarden_rs/wiki/SMTP-configuration
             smtp:
                 enabled: true
@@ -129,7 +129,7 @@ spec:
                 ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
                 port: ${SMTP_PORT}
                 ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
-                authMechanism: Plain
+                authMechanism: Login
                 ## Hostname to be sent for SMTP HELO. Defaults to pod name.
                 # heloName: ""
                 ## SMTP timeout.
