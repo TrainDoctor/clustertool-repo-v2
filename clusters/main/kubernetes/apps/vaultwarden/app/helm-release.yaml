@@ -48,9 +48,9 @@ spec:
                   - path: /
                     pathType: Prefix
         persistence:
-            config:
+            data:
                 enabled: true
-                mountPath: /app/config
+                mountPath: /data
                 volsync:
                     - credentials: vaultwarden
                       dest:
