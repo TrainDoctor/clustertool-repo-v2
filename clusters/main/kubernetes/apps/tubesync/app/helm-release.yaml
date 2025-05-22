@@ -45,9 +45,10 @@ spec:
                         enabled: false
                       type: restic
                 mountPath: /config
-            media-vol:
+            downloads:
                 enabled: true
                 type: nfs
+                mountPath: /downloads
                 path: /mnt/PoolTwo/data/media/youtube/
                 server: ${MEDIA_LOCAL_NAS_IP}
         release_name: tubesync
