@@ -103,6 +103,14 @@ spec:
             verifySignup: true
             # When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled.
             requireEmail: true
+            admin:
+                # Enable admin portal.
+                enabled: true
+                # Disabling the admin token will make the admin portal accessible to anyone, use carefully: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-admin-token
+                disableAdminToken: false
+                ## Token for admin login, will be generated if not defined. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-admin-page
+                token: ${VAULT_ADMIN_TOKEN}
+            # Enable SMTP. https://github.com/dani-garcia/bitwarden_rs/wiki/SMTP-configuration
             smtp:
                 enabled: true
                 # SMTP hostname, required if SMTP is enabled.
