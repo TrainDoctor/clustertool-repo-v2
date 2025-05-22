@@ -103,29 +103,29 @@ spec:
             verifySignup: true
             # When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled.
             requireEmail: true
-        smtp:
-            enabled: true
-            # SMTP hostname, required if SMTP is enabled.
-            host: "protonmail-bridge.protonmail-bridge.svc.cluster.local"
-            # SMTP sender e-mail address, required if SMTP is enabled.
-            from: "admin@traindoc.xyz"
-            ## SMTP sender name, defaults to 'Bitwarden_RS'.
-            fromName: "Vaultwarden @ traindoc.xyz (Do not reply)"
-            ## Enable SSL connection.
-            security: starttls
-            ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
-            port: 1025
-            ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
-            # authMechanism: Plain
-            ## Hostname to be sent for SMTP HELO. Defaults to pod name.
-            # heloName: ""
-            ## SMTP timeout.
-            # timeout: 15
-            ## Accept SSL session if certificate is valid but hostname doesn't match. DANGEROUS, vulnerable to men-in-the-middle attacks!
-            # invalidHostname: false
-            ## Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!
-            # invalidCertificate: false
-            ## SMTP username.
-            user: "${SMTP_USER}"
-            ## SMTP password. Required is user is specified, ignored if no user provided.
-            password: ${SMTP_PASSWORD_LLDAP}
+            smtp:
+                enabled: true
+                # SMTP hostname, required if SMTP is enabled.
+                host: "protonmail-bridge.protonmail-bridge.svc.cluster.local"
+                # SMTP sender e-mail address, required if SMTP is enabled.
+                from: "admin@traindoc.xyz"
+                ## SMTP sender name, defaults to 'Bitwarden_RS'.
+                fromName: "Vaultwarden @ traindoc.xyz (Do not reply)"
+                ## Enable SSL connection.
+                security: starttls
+                ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
+                port: 1025
+                ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
+                # authMechanism: Plain
+                ## Hostname to be sent for SMTP HELO. Defaults to pod name.
+                # heloName: ""
+                ## SMTP timeout.
+                # timeout: 15
+                ## Accept SSL session if certificate is valid but hostname doesn't match. DANGEROUS, vulnerable to men-in-the-middle attacks!
+                # invalidHostname: false
+                ## Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!
+                # invalidCertificate: false
+                ## SMTP username.
+                user: "${SMTP_USER}"
+                ## SMTP password. Required is user is specified, ignored if no user provided.
+                password: ${SMTP_PASSWORD_LLDAP}
