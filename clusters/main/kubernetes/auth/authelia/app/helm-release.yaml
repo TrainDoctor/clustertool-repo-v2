@@ -137,6 +137,7 @@ spec:
               - "steam.${DOMAIN_0}"
               - "qb.${DOMAIN_0}"
               - "ck.${DOMAIN_0}"
+              - "tube.${DOMAIN_0}"
             policy: deny
             subject:
               - 'group:users'
