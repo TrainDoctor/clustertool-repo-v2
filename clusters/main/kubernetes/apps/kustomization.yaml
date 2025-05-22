@@ -27,3 +27,4 @@ resources:
   - pc-kvm/ks.yaml
   - bazarr/ks.yaml
   - tubesync/ks.yaml
+  - vaultwarden/ks.yaml

@@ -1,0 +1,144 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+    name: vaultwarden
+    namespace: vaultwarden
+spec:
+    interval: 15m
+    chart:
+        spec:
+            chart: vaultwarden
+            version: 28.8.3
+            sourceRef:
+                kind: HelmRepository
+                name: truecharts
+                namespace: flux-system
+    releaseName: vaultwarden
+    values:
+        global:
+            stopAll: false
+        TZ: America/Los_Angeles
+        addons:
+            codeserver:
+                enabled: false
+            netshoot:
+                enabled: false
+            vpn:
+                type: disabled
+        credentials:
+            vaultwarden:
+                accessKey: ${VOLSYNC_S3_ACCESSKEY}
+                bucket: ${VOLSYNC_S3_BUCKET}
+                encrKey: ${VOLSYNC_S3_ENCKEY}
+                name: vaultwarden
+                path: ""
+                secretKey: ${VOLSYNC_S3_SECRETKEY}
+                type: s3
+                url: ${VOLSYNC_S3_URL}
+        ingress:
+          main:
+            enabled: true
+            ingressClassName: external
+            integrations:
+              traefik:
+                enabled: false
+            hosts:
+              - host: vault.${DOMAIN_0}
+                paths:
+                  - path: /
+                    pathType: Prefix
+        persistence:
+            data:
+                enabled: true
+                mountPath: /data
+                volsync:
+                    - credentials: vaultwarden
+                      dest:
+                        enabled: true
+                      name: cfg
+                      src:
+                        enabled: true
+                      type: restic
+        release_name: vaultwarden
+        resources: {}
+        securityContext:
+            container:
+                UMASK: "0022"
+            pod:
+                fsGroupChangePolicy: OnRootMismatch
+        service:
+            main:
+                enabled: true
+                sharedKey: custom-shared-key
+                loadBalancerIP: "${SERVICES_IP}"
+                ports:
+                    main:
+                        port: 10102
+                        targetPort: 8080
+                type: LoadBalancer
+        workload:
+            main:
+              podSpec:
+                containers:
+                  main:
+                    env:
+                      SMTP_DEBUG: true
+                replicas: 1
+                type: Deployment
+        cnpg:
+          main:
+            backups:
+              enabled: true
+              credentials: vaultwarden
+              scheduledBackups:
+                - name: daily-backup
+                  schedule: "0 5 0 * * *"
+                  backupOwnerReference: self
+                  immediate: true
+                  suspend: false
+        vaultwarden:
+            # -- Allow any user to sign-up
+            # see: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
+            allowSignups: true
+            ## Whitelist domains allowed to sign-up. 'allowSignups' is ignored if set.
+            signupDomains:
+             - ${DOMAIN_0}
+            # -- Verify e-mail before login is enabled.
+            # SMTP must be enabled.
+            verifySignup: true
+            # When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled.
+            requireEmail: true
+            admin:
+                # Enable admin portal.
+                enabled: true
+                # Disabling the admin token will make the admin portal accessible to anyone, use carefully: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-admin-token
+                disableAdminToken: false
+                ## Token for admin login, will be generated if not defined. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-admin-page
+                token: ${VAULT_ADMIN_TOKEN}
+            # Enable SMTP. https://github.com/dani-garcia/bitwarden_rs/wiki/SMTP-configuration
+            smtp:
+                enabled: true
+                # SMTP hostname, required if SMTP is enabled.
+                host: "${SMTP_SERVER}"
+                # SMTP sender e-mail address, required if SMTP is enabled.
+                from: "admin@${DOMAIN_0}"
+                ## SMTP sender name, defaults to 'Bitwarden_RS'.
+                fromName: "Vaultwarden (Do not reply)"
+                ## Enable SSL connection.
+                security: starttls
+                ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
+                port: ${SMTP_PORT}
+                ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
+                authMechanism: Plain
+                ## Hostname to be sent for SMTP HELO. Defaults to pod name.
+                # heloName: ""
+                ## SMTP timeout.
+                # timeout: 15
+                ## Accept SSL session if certificate is valid but hostname doesn't match. DANGEROUS, vulnerable to men-in-the-middle attacks!
+                # invalidHostname: false
+                ## Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!
+                # invalidCertificate: false
+                ## SMTP username.
+                user: "${SMTP_USER}"
+                ## SMTP password. Required is user is specified, ignored if no user provided.
+                password: ${SMTP_PASSWORD_VAULTWARDEN}

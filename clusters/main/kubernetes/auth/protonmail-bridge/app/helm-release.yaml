@@ -25,7 +25,7 @@ spec:
         vpn:
             type: disabled
     global:
-      stopAll: false
+      stopAll: true
     credentials:
         protonmail-bridge:
             name: protonmail-bridge
