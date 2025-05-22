@@ -42,6 +42,11 @@ spec:
             integrations:
               traefik:
                 enabled: false
+            annotations:
+              nginx.ingress.kubernetes.io/auth-method: 'GET'
+              nginx.ingress.kubernetes.io/auth-url: 'http://authelia.authelia.svc.cluster.local:9091/api/verify'
+              nginx.ingress.kubernetes.io/auth-signin: 'https://auth.${DOMAIN_0}?rm=$request_method'
+              nginx.ingress.kubernetes.io/auth-response-headers: 'Remote-User,Remote-Name,Remote-Groups,Remote-Email' 
             hosts:
               - host: vault.${DOMAIN_0}
                 paths:
@@ -112,14 +117,14 @@ spec:
                 # Enable admin portal.
                 enabled: true
                 # Disabling the admin token will make the admin portal accessible to anyone, use carefully: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-admin-token
-                disableAdminToken: false
+                disableAdminToken: true
                 ## Token for admin login, will be generated if not defined. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-admin-page
                 # token: "${VAULT_ADMIN_TOKEN}"
             # Enable SMTP. https://github.com/dani-garcia/bitwarden_rs/wiki/SMTP-configuration
             smtp:
                 enabled: true
                 # SMTP hostname, required if SMTP is enabled.
-                host: "${SMTP_SERVER}"
+                host: ${SMTP_SERVER}
                 # SMTP sender e-mail address, required if SMTP is enabled.
                 from: "admin@${DOMAIN_0}"
                 ## SMTP sender name, defaults to 'Bitwarden_RS'.
@@ -127,7 +132,7 @@ spec:
                 ## Enable SSL connection.
                 security: starttls
                 ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
-                port: ${SMTP_PORT}
+                port: 587
                 ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
                 authMechanism: Login
                 ## Hostname to be sent for SMTP HELO. Defaults to pod name.
