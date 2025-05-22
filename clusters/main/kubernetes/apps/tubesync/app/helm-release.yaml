@@ -39,10 +39,10 @@ spec:
                 volsync:
                     - credentials: tubesync
                       dest:
-                        enabled: true
+                        enabled: false
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
                 mountPath: /config
             media-vol:
