@@ -39,10 +39,10 @@ spec:
                 volsync:
                     - credentials: tubesync
                       dest:
-                        enabled: false
+                        enabled: true
                       name: cfg
                       src:
-                        enabled: false
+                        enabled: true
                       type: restic
                 mountPath: /config
             downloads:
@@ -57,8 +57,8 @@ spec:
             container:
                 UMASK: "0022"
                 readOnlyRootFilesystem: false
-                runAsGroup: ${MEDIA_GROUP}
-                runAsUser: ${MEDIA_USER}
+                runAsGroup: 1000
+                runAsUser: 1000
                 hostNetwork: false
             pod:
                 fsGroupChangePolicy: OnRootMismatch
