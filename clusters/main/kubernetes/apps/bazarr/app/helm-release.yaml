@@ -64,6 +64,12 @@ spec:
                       src:
                         enabled: true
                       type: restic
+            data-vol:
+                enabled: true
+                type: nfs
+                mountPath: /data
+                path: /mnt/PoolTwo/data
+                server: ${MEDIA_LOCAL_NAS_IP}
         release_name: bazarr
         resources: {}
         securityContext:
