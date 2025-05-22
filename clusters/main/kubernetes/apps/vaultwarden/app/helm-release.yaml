@@ -118,7 +118,7 @@ spec:
                 # SMTP sender e-mail address, required if SMTP is enabled.
                 from: "admin@traindoc.xyz"
                 ## SMTP sender name, defaults to 'Bitwarden_RS'.
-                fromName: "Vaultwarden @ ${DOMAIN_0} (Do not reply)"
+                fromName: "Vaultwarden (Do not reply)"
                 ## Enable SSL connection.
                 security: starttls
                 ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
@@ -134,6 +134,6 @@ spec:
                 ## Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!
                 # invalidCertificate: false
                 ## SMTP username.
-                user: "${SMTP_USER}"
+                user: "traindoc@${DOMAIN_0}"
                 ## SMTP password. Required is user is specified, ignored if no user provided.
                 password: ${SMTP_PASSWORD_LLDAP}
