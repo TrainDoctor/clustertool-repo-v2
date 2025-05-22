@@ -74,7 +74,7 @@ spec:
                 ports:
                     main:
                         port: 10102
-                        targetPort: 10102
+                        targetPort: 8080
                 type: LoadBalancer
         workload:
             main:
