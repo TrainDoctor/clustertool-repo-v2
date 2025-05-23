@@ -151,7 +151,7 @@ spec:
               - "baz.${DOMAIN_0}"
             policy: two_factor
             subject:
-              - 'group:users'
+              - 'group:media_users'
       session:
         cookies:
           - domain: '${DOMAIN_0}'
