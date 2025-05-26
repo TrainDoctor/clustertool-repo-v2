@@ -47,7 +47,7 @@ spec:
                     SERVER_CITIES: "${QBIT_VPN_CITIES}"
                     VPN_ENDPOINT_PORT: ${QBIT_VPN_ENDPOINT_PORT}
                     WIREGUARD_PUBLIC_KEY: ${QBIT_VPN_WG_PUBLIC_KEY}
-                    VPN_ENDPOINT_IP: "${QBIT_VPN_ENDPOINT_IP}"
+                    VPN_ENDPOINT_IP: ${QBIT_VPN_ENDPOINT_IP}
                 securityContext:
                 container:
                     capabilities:
