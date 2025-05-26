@@ -47,7 +47,7 @@ spec:
                     FIREWALL_VPN_INPUT_PORTS: ${QBIT_VPN_INPUT_PORTS}
                     WIREGUARD_ENDPOINT_PORT: ${QBIT_VPN_ENDPOINT_PORT}
                     WIREGUARD_PUBLIC_KEY: ${QBIT_VPN_WG_PUBLIC_KEY}
-                    VPN_ENDPOINT_IP: ${QBIT_VPN_ENDPOINT_IP}
+                    WIREGUARD_ENDPOINT_IP: ${QBIT_VPN_ENDPOINT_IP}
                     DNS_ADDRESS: 1.1.1.1:53
                 securityContext:
                 container:
