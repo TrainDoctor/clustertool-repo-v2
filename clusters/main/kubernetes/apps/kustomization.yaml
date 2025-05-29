@@ -28,3 +28,4 @@ resources:
   - bazarr/ks.yaml
   - tubesync/ks.yaml
   - vaultwarden/ks.yaml
+  - prox-kvm/ks.yaml
