@@ -44,7 +44,7 @@ spec:
                     WIREGUARD_PRIVATE_KEY: "${QBIT_VPN_WG_PRIVATE_KEY}"
                     WIREGUARD_ADDRESSES: "${QBIT_VPN_ADDRESSES}"
                     FIREWALL_VPN_INPUT_PORTS: ${QBIT_VPN_INPUT_PORTS}
-                    SERVER_CITIES: "${QBIT_VPN_CITIES}"
+                    # SERVER_CITIES: "${QBIT_VPN_CITIES}"
                     WIREGUARD_ENDPOINT_PORT: ${QBIT_VPN_ENDPOINT_PORT}
                     WIREGUARD_PUBLIC_KEY: ${QBIT_VPN_WG_PUBLIC_KEY}
                     WIREGUARD_ENDPOINT_IP: ${QBIT_VPN_ENDPOINT_IP}
