@@ -18,7 +18,6 @@ spec:
         service:
             main:
               type: ExternalIP
-              appProtocol: https
               externalIP: "${KVM_IP}"
               useSlice: false
               ports:
