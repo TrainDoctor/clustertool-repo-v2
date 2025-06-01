@@ -46,5 +46,13 @@ spec:
         resources: {}
         workload:
             main:
+              podSpec:
+                containers:
+                  main:
+                    envFrom:
+                      - secretRef:
+                        name: "secret"
+                    env:
+                        LOG_LEVEL: 3
                 replicas: 1
                 type: Deployment
