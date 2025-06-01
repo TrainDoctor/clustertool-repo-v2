@@ -45,15 +45,12 @@ spec:
         release_name: cloudflareddns
         resources: {}
         workload:
-            main:
-              podSpec:
-                containers:
-                  main:
-                    envFrom:
-                      - secretRef:
-                        name: "secret"
-                    env:
-                        LOG_LEVEL: 3
-                        CF_RECORDTYPES: "A"
-                replicas: 1
-                type: Deployment
+          main:
+            podSpec:
+              containers:
+                main:
+                  env:
+                    LOG_LEVEL: 3
+                    CF_RECORDTYPES: "A"
+                  replicas: 1
+                  type: Deployment
