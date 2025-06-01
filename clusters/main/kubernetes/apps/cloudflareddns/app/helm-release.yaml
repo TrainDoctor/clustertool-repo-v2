@@ -44,35 +44,7 @@ spec:
                 storageClass: ""
         release_name: cloudflareddns
         resources: {}
-        securityContext:
-            container:
-                UMASK: "0022"
-                readOnlyRootFilesystem: false
-                runAsGroup: 0
-                runAsNonRoot: false
-                runAsUser: 0
-            pod:
-                fsGroupChangePolicy: OnRootMismatch
-        service:
-            main:
-                enabled: false
-                ports:
-                    main:
-                        enabled: false
         workload:
             main:
-                podSpec:
-                    containers:
-                        main:
-                            envFrom:
-                                - secretRef:
-                                    name: secret
-                            probes:
-                                liveness:
-                                    enabled: false
-                                readiness:
-                                    enabled: false
-                                startup:
-                                    enabled: false
                 replicas: 1
                 type: Deployment
