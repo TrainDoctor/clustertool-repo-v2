@@ -51,6 +51,5 @@ spec:
                 main:
                   env:
                     LOG_LEVEL: 3
-                    CF_RECORDTYPES: "A"
                   replicas: 1
                   type: Deployment
