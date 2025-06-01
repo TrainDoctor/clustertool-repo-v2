@@ -49,7 +49,5 @@ spec:
             podSpec:
               containers:
                 main:
-                  env:
-                    LOG_LEVEL: 3
                   replicas: 1
                   type: Deployment
