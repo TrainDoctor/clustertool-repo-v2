@@ -89,7 +89,7 @@ spec:
             main:
                 enabled: true
                 sharedKey: custom-shared-key
-                loadBalancerIP: "${PLAYBACK_IP}"
+                loadBalancerIP: "${SERVICES_IP}"
                 ports:
                     main:
                         port: 4848
