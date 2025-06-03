@@ -52,20 +52,10 @@ spec:
                 encrKey: ${VOLSYNC_S3_ENCKEY}
         persistence:
             config:
-                volsync:
-                    - credentials: tubesync
-                      dest:
-                        enabled: false
-                      name: cfg
-                      src:
-                        enabled: false
-                      type: restic
-                mountPath: /config
-            cookies:
                 enabled: true
                 type: nfs
-                mountPath: /config/cookies.txt
-                path: /mnt/PoolTwo/data/media/youtube/cookies.txt
+                mountPath: /config
+                path: /mnt/PoolOne/appconfigs/tubesync/config/
                 server: ${MEDIA_LOCAL_NAS_IP}
             thumbnails:
                 enabled: true
