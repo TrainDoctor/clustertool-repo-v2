@@ -34,7 +34,6 @@ spec:
                     VPN_TYPE: "wireguard"
                     WIREGUARD_PRIVATE_KEY: "${TUBESYNC_VPN_WG_PRIVATE_KEY}"
                     WIREGUARD_ADDRESSES: "${TUBESYNC_VPN_ADDRESSES}"
-                    SERVER_CITIES: "${TUBESYNC_VPN_CITIES}"
                     FIREWALL_VPN_INPUT_PORTS: ${TUBESYNC_VPN_INPUT_PORTS}
                     WIREGUARD_ENDPOINT_PORT: ${TUBESYNC_VPN_ENDPOINT_PORT}
                     WIREGUARD_PUBLIC_KEY: ${TUBESYNC_VPN_WG_PUBLIC_KEY}
