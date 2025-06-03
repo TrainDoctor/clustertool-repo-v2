@@ -64,7 +64,7 @@ spec:
             thumbnails:
                 enabled: true
                 type: nfs
-                mountPath: /data/media/thumbs
+                mountPath: /config/media/thumbs
                 path: /mnt/PoolTwo/data/media/youtube/thumbnails/
                 server: ${MEDIA_LOCAL_NAS_IP}
             downloads:
