@@ -62,6 +62,12 @@ spec:
                         enabled: true
                       type: restic
                 mountPath: /config
+            thumbnails:
+                enabled: true
+                type: nfs
+                mountPath: /data/media/thumbs
+                path: /mnt/PoolTwo/data/media/youtube/thumbnails/
+                server: ${MEDIA_LOCAL_NAS_IP}
             downloads:
                 enabled: true
                 type: nfs
