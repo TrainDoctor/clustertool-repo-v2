@@ -8,7 +8,7 @@ spec:
     chart:
         spec:
             chart: tubesync
-            version: 7.5.55
+            version: 7.5.56
             sourceRef:
                 kind: HelmRepository
                 name: truecharts
