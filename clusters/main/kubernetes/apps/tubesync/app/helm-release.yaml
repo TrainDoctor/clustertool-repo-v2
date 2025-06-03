@@ -41,15 +41,6 @@ spec:
                     DNS_ADDRESS: 1.1.1.1
         autodiscovery:
             enabled: true
-        credentials:
-            tubesync:
-                name: tubesync
-                type: s3
-                url: ${VOLSYNC_S3_URL}
-                bucket: ${VOLSYNC_S3_BUCKET}
-                accessKey: ${VOLSYNC_S3_ACCESSKEY}
-                secretKey: ${VOLSYNC_S3_SECRETKEY}
-                encrKey: ${VOLSYNC_S3_ENCKEY}
         persistence:
             config:
                 enabled: true
