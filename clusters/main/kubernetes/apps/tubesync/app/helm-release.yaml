@@ -61,6 +61,12 @@ spec:
                         enabled: false
                       type: restic
                 mountPath: /config
+            cookies:
+                enabled: true
+                type: nfs
+                mountPath: /config/cookies.txt
+                path: /mnt/PoolTwo/data/media/youtube/cookies.txt
+                server: ${MEDIA_LOCAL_NAS_IP}
             thumbnails:
                 enabled: true
                 type: nfs
