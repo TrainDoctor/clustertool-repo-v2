@@ -80,8 +80,8 @@ spec:
             container:
                 UMASK: "0022"
                 readOnlyRootFilesystem: false
-                runAsGroup: 1000
-                runAsUser: 1000
+                runAsGroup: 0
+                runAsUser: 0
                 hostNetwork: false
             pod:
                 fsGroupChangePolicy: OnRootMismatch
