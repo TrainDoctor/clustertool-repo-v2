@@ -38,13 +38,26 @@ spec:
                     DNS_ADDRESS: 1.1.1.1
         autodiscovery:
             enabled: true
+        credentials:
+            tubesync:
+                name: tubesync
+                type: s3
+                url: ${VOLSYNC_S3_URL}
+                bucket: ${VOLSYNC_S3_BUCKET}
+                accessKey: ${VOLSYNC_S3_ACCESSKEY}
+                secretKey: ${VOLSYNC_S3_SECRETKEY}
+                encrKey: ${VOLSYNC_S3_ENCKEY}
         persistence:
             config:
-                enabled: true
-                type: nfs
+                volsync:
+                    - credentials: tubesync
+                      dest:
+                        enabled: false
+                      name: cfg
+                      src:
+                        enabled: false
+                      type: restic
                 mountPath: /config
-                path: /mnt/PoolOne/appconfigs/tubesync/config/
-                server: ${MEDIA_LOCAL_NAS_IP}
             thumbnails:
                 enabled: true
                 type: nfs
@@ -88,7 +101,7 @@ spec:
                                 DATABASE_CONNECTION: ""
                                 http_PASS: ""
                                 http_USER: ""
-                                TUBESYNC_DEBUG: "True"
+                                TUBESYNC_DEBUG: "False"
                                 TUBESYNC_HOSTS: ""
                                 TUBESYNC_WORKERS: "2"
                 replicas: 1
