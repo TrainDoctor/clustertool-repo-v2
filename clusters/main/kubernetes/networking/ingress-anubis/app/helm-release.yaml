@@ -9,7 +9,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: ingress-anubis
-    namespace: jaredallard-helmcharts
+    namespace: flux-system
   timeout: 20m
   maxHistory: 3
   install:
