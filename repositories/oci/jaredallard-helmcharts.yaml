@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/ocirepository_v1beta2.json
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: jaredallard-helmcharts
+  namespace: jaredallard-helmcharts
+spec:
+  interval: 30m
+  url: oci://ghcr.io/jaredallard/helm-charts/ingress-anubis
+  ref:
+    tag: v1.6.1
