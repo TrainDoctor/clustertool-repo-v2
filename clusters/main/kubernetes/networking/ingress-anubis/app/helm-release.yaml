@@ -7,7 +7,7 @@ metadata:
 spec:
   interval: 15m
   chartRef:
-    kind: OCIRepository
+    kind: HelmChart
     name: ingress-anubis
     namespace: ingress-anubis
   timeout: 20m
