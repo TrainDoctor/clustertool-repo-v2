@@ -3,10 +3,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
-  name: jaredallard-helmcharts
+  name: ingress-anubis
   namespace: jaredallard-helmcharts
 spec:
-  interval: 30m
+  interval: 15m
   url: oci://ghcr.io/jaredallard/helm-charts/ingress-anubis
   ref:
     tag: v1.6.1
