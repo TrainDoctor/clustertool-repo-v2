@@ -9,7 +9,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: ingress-anubis
-    namespace: flux-system
+    namespace: ingress-anubis
   timeout: 20m
   maxHistory: 3
   install:

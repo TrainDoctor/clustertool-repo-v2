@@ -4,6 +4,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
   name: ingress-anubis
+  namespace: ingress-anubis
 spec:
   interval: 15m
   url: oci://ghcr.io/jaredallard/helm-charts/ingress-anubis
