@@ -37,16 +37,16 @@ spec:
         ports:
           main:
             port: 6885
-    controller:
-      ingressClassResource:
-        name: anubis
-        default: false
-        controllerValue: k8s.io/external
-      config:
-        ANUBIS_VERSION: "1.19.1"
-        WRAPPED_INGRESS_CLASS_NAME: "external"
-        # Example usage:
-        # prometheus.io/scrape:true,prometheus.io/scrape:false
-        ANNOTATIONS: |
-          metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: 192.168.0.225
+    # controller:
+    #   ingressClassResource:
+    #     name: anubis
+    #     default: false
+    #     controllerValue: k8s.io/external
+    #   config:
+    #     ANUBIS_VERSION: "1.19.1"
+    #     WRAPPED_INGRESS_CLASS_NAME: "external"
+    #     # Example usage:
+    #     # prometheus.io/scrape:true,prometheus.io/scrape:false
+    #     ANNOTATIONS: |
+    #       metallb.io/ip-allocated-from-pool: main
+    #       metallb.io/loadBalancerIPs: 192.168.0.225
