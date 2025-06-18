@@ -28,6 +28,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+          stopAll: true
     image:
       repository: ghcr.io/jaredallard/ingress-anubis
       pullPolicy: IfNotPresent
