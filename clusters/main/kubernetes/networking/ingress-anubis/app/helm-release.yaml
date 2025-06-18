@@ -6,10 +6,14 @@ metadata:
   name: ingress-anubis
 spec:
   interval: 15m
-  chartRef:
-    kind: HelmChart
-    name: ingress-anubis
-    namespace: ingress-anubis
+  chart: 
+    spec:
+      chart: app-template
+      version: 14.5.3
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
   timeout: 20m
   maxHistory: 3
   install:
@@ -23,13 +27,16 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    controller:
-      replicaCount: 2
-      config:
-        ANUBIS_VERSION: "1.19.1"
-        WRAPPED_INGRESS_CLASS_NAME: "external"
-        # Example usage:
-        # prometheus.io/scrape:true,prometheus.io/scrape:false
-        ANNOTATIONS: |
-          metallb.io/ip-allocated-from-pool: main
-          metallb.io/loadBalancerIPs: 192.168.0.225
+     image:
+      repository: ghcr.io/jaredallard/ingress-anubis
+      pullPolicy: IfNotPresent
+      tag: 1.6.1@sha256:c27a2d55ad2c13c6a3739428953b422429c4d89abacd0439666cbff216ec33ca
+     controller:
+        config:
+          ANUBIS_VERSION: "1.19.1"
+          WRAPPED_INGRESS_CLASS_NAME: "external"
+          # Example usage:
+          # prometheus.io/scrape:true,prometheus.io/scrape:false
+          ANNOTATIONS: |
+            metallb.io/ip-allocated-from-pool: main
+            metallb.io/loadBalancerIPs: 192.168.0.225
