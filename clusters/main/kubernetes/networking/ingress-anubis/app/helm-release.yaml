@@ -4,6 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: ingress-anubis
+  namespace: ingress-anubis
 spec:
   interval: 15m
   chart: 
