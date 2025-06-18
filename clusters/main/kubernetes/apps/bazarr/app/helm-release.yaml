@@ -84,7 +84,7 @@ spec:
             main:
                 enabled: true
                 sharedKey: custom-shared-key
-                loadBalancerIP: "${MEDIA_IP}"
+                loadBalancerIP: "${MEDIA_TOOLS_IP}"
                 ports:
                     main:
                         port: 9696
