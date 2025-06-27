@@ -74,7 +74,7 @@ spec:
                 LLDAP_SMTP_OPTIONS__PASSWORD: ${SMTP_PASSWORD_LLDAP}
                 LLDAP_SMTP_OPTIONS__PORT: ${SMTP_PORT}
                 LLDAP_SMTP_OPTIONS__REPLY_TO: Do not reply <admin@${DOMAIN_0}>
-                LLDAP_SMTP_OPTIONS__SERVER: ${SMTP_SERVER}
+                LLDAP_SMTP_OPTIONS__SERVER: smtp.${SMTP_SERVER}
                 LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: TLS
                 LLDAP_SMTP_OPTIONS__USER: ${SMTP_USER}
                 LLDAP_VERBOSE: false
