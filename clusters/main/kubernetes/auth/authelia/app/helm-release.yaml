@@ -162,12 +162,12 @@ spec:
         ban_time: 12h
       notifier:
         smtp:
-          address: 'smtp://smtp.${SMTP_SERVER}:587'
+          address: 'smtp://${SMTP_SERVER}:587'
           username: ${SMTP_USER}
           password: ${SMTP_PASSWORD_AUTHELIA}
           sender: admin@${DOMAIN_0}
           startup_check_address: admin@${DOMAIN_0}
           disable_html_emails: false
           tls:
-            server_name: smtp.${SMTP_SERVER}
+            server_name: ${SMTP_SERVER}
             skip_verify: false
