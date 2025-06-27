@@ -119,7 +119,7 @@ spec:
             smtp:
                 enabled: true
                 # SMTP hostname, required if SMTP is enabled.
-                host: ${SMTP_SERVER}
+                host: smtp.protonmail.ch
                 # SMTP sender e-mail address, required if SMTP is enabled.
                 from: "admin@${DOMAIN_0}"
                 ## SMTP sender name, defaults to 'Bitwarden_RS'.
