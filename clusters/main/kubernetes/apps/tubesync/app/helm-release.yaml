@@ -103,7 +103,7 @@ spec:
                                 http_USER: ""
                                 TUBESYNC_DEBUG: "False"
                                 TUBESYNC_HOSTS: ""
-                                TUBESYNC_WORKERS: "2"
+                                TUBESYNC_WORKERS: "1"
                 replicas: 1
                 type: Deployment
         ingress:
