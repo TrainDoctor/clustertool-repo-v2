@@ -35,7 +35,7 @@ spec:
         ingress:
           main:
             enabled: true
-            ingressClassName: anubis
+            ingressClassName: external
             integrations:
               traefik:
                 enabled: false
