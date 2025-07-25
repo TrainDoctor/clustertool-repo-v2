@@ -33,7 +33,7 @@ spec:
     image:
       repository: ghcr.io/jaredallard/ingress-anubis
       pullPolicy: IfNotPresent
-      tag: 1.7.2@sha256:085276d8ae82964878cb672ca7921482369554938bc1e8a20431734f8c0dabbe
+      tag: 1.7.3@sha256:7ec492fa1ff02310c189588efe0f8c7747079a8681e4cea44083237c9c85c566
     config:
         ANUBIS_VERSION: "1.19.1"
         WRAPPED_INGRESS_CLASS_NAME: "external"
