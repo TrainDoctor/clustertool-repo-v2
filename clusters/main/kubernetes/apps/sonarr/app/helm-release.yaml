@@ -21,8 +21,6 @@ spec:
                 enabled: false
             netshoot:
                 enabled: false
-            vpn:
-                type: disabled
         credentials:
             sonarr:
                 name: sonarr
