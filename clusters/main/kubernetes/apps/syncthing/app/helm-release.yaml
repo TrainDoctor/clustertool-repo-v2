@@ -56,10 +56,10 @@ spec:
                 volsync:
                     - credentials: syncthing
                       dest:
-                        enabled: true
+                        enabled: false
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
             data-vol:
                 enabled: true

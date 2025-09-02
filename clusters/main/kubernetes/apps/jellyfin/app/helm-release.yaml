@@ -27,7 +27,7 @@ spec:
             enabled: true
         credentials:
             jellyfin:
-                name: jellyfinv2
+                name: jellyfin
                 type: s3
                 url: ${VOLSYNC_S3_URL}
                 bucket: ${VOLSYNC_S3_BUCKET}
@@ -37,12 +37,12 @@ spec:
         persistence:
             config:
                 volsync:
-                    - credentials: jellyfinv2
+                    - credentials: jellyfin
                       dest:
                         enabled: false
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
             # cache:
             #     enabled: true
