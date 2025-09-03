@@ -60,7 +60,7 @@ spec:
                         enabled: false
                       name: cfg
                       src:
-                        enabled: false
+                        enabled: true
                       type: restic
         release_name: jellyseerr
         resources: {}
