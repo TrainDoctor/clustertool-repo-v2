@@ -8,7 +8,6 @@ resources:
   - jellyfin/ks.yaml
   - jellyseerr/ks.yaml
   - lidarr/ks.yaml
-  - netbootxyz/ks.yaml
   - prowlarr/ks.yaml
   - qbittorrent-v2/ks.yaml
   - radarr/ks.yaml
