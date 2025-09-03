@@ -141,7 +141,7 @@ spec:
             main:
                 enabled: true
                 sharedKey: custom-shared-key
-                loadBalancerIP: 192.168.0.224
+                loadBalancerIP: 192.168.0.225
                 ports:
                     main:
                         port: 10095
@@ -149,7 +149,7 @@ spec:
             torrent:
                 enabled: true
                 sharedKey: custom-shared-key
-                loadBalancerIP: 192.168.0.224
+                loadBalancerIP: 192.168.0.225
                 ports:
                     torrent:
                         enabled: true
