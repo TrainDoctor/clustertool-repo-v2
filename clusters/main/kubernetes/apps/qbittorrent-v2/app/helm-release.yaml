@@ -38,23 +38,22 @@ spec:
                 # excludedNetworks_IPv4:
                 #     - "192.168.0.0/24"
                 # excludedNetworks_IPv6: []
-                env:
-                    VPN_SERVICE_PROVIDER: mullvad
-                    VPN_TYPE: "wireguard"
-                    WIREGUARD_PRIVATE_KEY: "${QBIT_VPN_WG_PRIVATE_KEY}"
-                    WIREGUARD_ADDRESSES: "${QBIT_VPN_ADDRESS}"
-                    SERVER_CITIES: "${QBIT_VPN_CITIES}"
-                    DNS_ADDRESS: 1.1.1.1
-                securityContext:
                 container:
+                    env:
+                        VPN_TYPE: "wireguard"
+                        VPN_SERVICE_PROVIDER: mullvad
+                        WIREGUARD_PRIVATE_KEY: "${QBIT_VPN_WG_PRIVATE_KEY}"
+                        WIREGUARD_ADDRESSES: "${QBIT_VPN_ADDRESS}"
+                        SERVER_CITIES: "${QBIT_VPN_CITIES}"
+                        DNS_ADDRESS: 1.1.1.1
                     resources:
                         limits:
                             truecharts.org/tun: 1
-                    capabilities:
-                        add:
-                            - SYS_MODULE
-                            - NET_ADMIN
-                            - NET_RAW
+                        capabilities:
+                            add:
+                                - SYS_MODULE
+                                - NET_ADMIN
+                                - NET_RAW
         credentials:
             qbittorrent:
                 name: qbittorrent

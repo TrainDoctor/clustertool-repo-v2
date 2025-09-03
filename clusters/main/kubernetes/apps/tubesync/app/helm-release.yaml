@@ -29,13 +29,14 @@ spec:
                 # excludedNetworks_IPv4:
                 #     - "192.168.0.0/24"
                 # excludedNetworks_IPv6: []
-                env:
-                    VPN_SERVICE_PROVIDER: mullvad
-                    VPN_TYPE: "wireguard"
-                    WIREGUARD_PRIVATE_KEY: "${TUBESYNC_VPN_WG_PRIVATE_KEY}"
-                    WIREGUARD_ADDRESSES: "${TUBESYNC_VPN_ADDRESS}"
-                    SERVER_CITIES: "${TUBESYNC_VPN_CITIES}"
-                    DNS_ADDRESS: 1.1.1.1
+                container:
+                    env:
+                        VPN_SERVICE_PROVIDER: mullvad
+                        VPN_TYPE: "wireguard"
+                        WIREGUARD_PRIVATE_KEY: "${TUBESYNC_VPN_WG_PRIVATE_KEY}"
+                        WIREGUARD_ADDRESSES: "${TUBESYNC_VPN_ADDRESS}"
+                        SERVER_CITIES: "${TUBESYNC_VPN_CITIES}"
+                        DNS_ADDRESS: 1.1.1.1
         autodiscovery:
             enabled: true
         credentials:
