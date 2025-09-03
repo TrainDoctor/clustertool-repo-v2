@@ -32,9 +32,9 @@ spec:
                 enabled: false
             netshoot:
                 enabled: false
-            vpn:
-                type: gluetun
-                killSwitch: true
+            gluetun:
+                enabled: true
+                # killSwitch: true
                 # excludedNetworks_IPv4:
                 #     - "192.168.0.0/24"
                 # excludedNetworks_IPv6: []
@@ -47,6 +47,9 @@ spec:
                     DNS_ADDRESS: 1.1.1.1
                 securityContext:
                 container:
+                    resources:
+                        limits:
+                            truecharts.org/tun: 1
                     capabilities:
                         add:
                             - SYS_MODULE
