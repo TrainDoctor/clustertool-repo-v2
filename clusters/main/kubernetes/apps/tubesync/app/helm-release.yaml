@@ -30,6 +30,8 @@ spec:
                 # excludedNetworks_IPv6: []
                 container:
                     env:
+                        FIREWALL: "on"
+                        FIREWALL_OUTBOUND_SUBNETS: "192.168.0.0/24"
                         VPN_SERVICE_PROVIDER: mullvad
                         VPN_TYPE: "wireguard"
                         WIREGUARD_PRIVATE_KEY: "${TUBESYNC_VPN_WG_PRIVATE_KEY}"
