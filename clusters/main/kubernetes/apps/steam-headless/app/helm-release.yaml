@@ -23,8 +23,6 @@ spec:
                 enabled: false
             netshoot:
                 enabled: false
-            vpn:
-                type: disabled
         credentials:
             steam-headless:
                 name: steam-headless

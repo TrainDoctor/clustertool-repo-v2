@@ -21,8 +21,6 @@ spec:
                 enabled: false
             netshoot:
                 enabled: false
-            vpn:
-                type: disabled
         cloudflareddns:
             api_key: ""
             api_token: ${DDNS_API_TOKEN}
