@@ -22,8 +22,6 @@ spec:
             enabled: false
         netshoot:
             enabled: false
-        vpn:
-            type: disabled
     global:
       stopAll: true
     credentials:
