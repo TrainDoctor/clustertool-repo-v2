@@ -40,6 +40,8 @@ spec:
                 # excludedNetworks_IPv6: []
                 container:
                     env:
+                        FIREWALL: "on"
+                        FIREWALL_OUTBOUND_SUBNETS: "192.168.0.0/24"
                         VPN_TYPE: "wireguard"
                         VPN_SERVICE_PROVIDER: mullvad
                         WIREGUARD_PRIVATE_KEY: "${QBIT_VPN_WG_PRIVATE_KEY}"
