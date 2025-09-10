@@ -40,7 +40,7 @@ spec:
                         enabled: true
                       name: cfg
                       src:
-                        enabled: true
+                        enabled: false
                       type: restic
             # cache:
             #     enabled: true
