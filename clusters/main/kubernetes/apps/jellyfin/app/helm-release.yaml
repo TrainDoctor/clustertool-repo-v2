@@ -70,7 +70,7 @@ spec:
                 fsGroupChangePolicy: OnRootMismatch
         service:
             autodiscovery:
-                enabled: false
+                enabled: true
                 sharedKey: custom-shared-key
                 loadBalancerIP: "${PLAYBACK_IP}"
                 ports:
