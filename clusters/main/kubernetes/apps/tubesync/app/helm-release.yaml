@@ -106,7 +106,8 @@ spec:
                                 TUBESYNC_DEBUG: "False"
                                 TUBESYNC_HOSTS: ""
                                 TUBESYNC_WORKERS: "1"
-                                YOUTUBE_DL_SKIP_UNAVAILABLE_FORMAT: "TRUE" 
+                                YOUTUBE_DL_SKIP_UNAVAILABLE_FORMAT: "TRUE"
+                                VIDEO_HEIGHT_UPGRADE: "TRUE"
                 replicas: 1
                 type: Deployment
         ingress:
