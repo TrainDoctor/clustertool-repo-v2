@@ -103,7 +103,7 @@ spec:
                                 DATABASE_CONNECTION: ""
                                 http_PASS: ""
                                 http_USER: ""
-                                TUBESYNC_DEBUG: "False"
+                                TUBESYNC_DEBUG: "True"
                                 TUBESYNC_HOSTS: ""
                                 TUBESYNC_WORKERS: "1"
                                 YOUTUBE_DL_SKIP_UNAVAILABLE_FORMAT: "TRUE"
