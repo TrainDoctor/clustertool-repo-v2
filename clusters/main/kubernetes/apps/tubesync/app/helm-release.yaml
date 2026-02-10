@@ -108,6 +108,7 @@ spec:
                                 TUBESYNC_WORKERS: "1"
                                 YOUTUBE_DL_SKIP_UNAVAILABLE_FORMAT: "TRUE"
                                 VIDEO_HEIGHT_UPGRADE: "TRUE"
+                                ALLOWED_HOSTS: tube.${DOMAIN_0}
                 replicas: 1
                 type: Deployment
         ingress:
