@@ -98,11 +98,12 @@ spec:
                         targetPort: 7359
                 type: LoadBalancer
             codeserver:
-                type: "LoadBalancer"
-                loadBalancerIP: "192.168.0.128"
+                type: LoadBalancer
+                loadBalancerIP: 192.168.0.128
                 ports:
                     codeserver:
                         port: 12321
+                        targetPort: 80
             main:
                 enabled: true
                 sharedKey: custom-shared-key
@@ -168,6 +169,9 @@ spec:
                     enabled: false
             hosts:
                 - host: jfcs.${DOMAIN_0}
+                  paths:
+                    - path: /
+                      pathType: Prefix
           main:
             enabled: true
             ingressClassName: external
