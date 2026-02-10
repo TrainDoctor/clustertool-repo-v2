@@ -27,10 +27,13 @@ spec:
                         port: 12321
             ingress:
                 enabled: true
-                integrations:
-                    certManager:
-                        enabled: true
-                        certificateIssuer: cloudflare
+                ingressClassName: external
+            integrations:
+                traefik:
+                    enabled: false
+                certManager:
+                    enabled: true
+                    certificateIssuer: cloudflare
                 hosts:
                     - host: jfcs.${DOMAIN_0}
             netshoot:
