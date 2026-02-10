@@ -16,7 +16,7 @@ spec:
     releaseName: steam-headless
     values:
         global:
-            stopAll: false
+            stopAll: true
         TZ: America/Los_Angeles
         addons:
             codeserver:
