@@ -19,23 +19,23 @@ spec:
         addons:
             codeserver:
               enabled: true
-              service:
-                type: "LoadBalancer"
-                loadBalancerIP: "192.168.0.128"
-                ports:
-                    codeserver:
-                        port: 12321
-                ingress:
-                    enabled: true
-                    ingressClassName: external
-                integrations:
-                    traefik:
-                        enabled: false
-                    certManager:
-                        enabled: true
-                        certificateIssuer: cloudflare
-                    hosts:
-                        - host: jfcs.${DOMAIN_0}
+            #   service:
+            #     type: "LoadBalancer"
+            #     loadBalancerIP: "192.168.0.128"
+            #     ports:
+            #         codeserver:
+            #             port: 12321
+                # ingress:
+                #     enabled: true
+                #     ingressClassName: external
+                # integrations:
+                #     traefik:
+                #         enabled: false
+                #     certManager:
+                #         enabled: true
+                #         certificateIssuer: cloudflare
+                #     hosts:
+                #         - host: jfcs.${DOMAIN_0}
             netshoot:
                 enabled: false
         autodiscovery:
@@ -97,6 +97,12 @@ spec:
                         protocol: udp
                         targetPort: 7359
                 type: LoadBalancer
+            codeserver:
+                type: "LoadBalancer"
+                loadBalancerIP: "192.168.0.128"
+                ports:
+                    codeserver:
+                        port: 12321
             main:
                 enabled: true
                 sharedKey: custom-shared-key
@@ -154,6 +160,14 @@ spec:
                 replicas: 1
                 type: Deployment
         ingress:
+          codeserver:
+            enabled: true
+            ingressClassName: external
+            integrations:
+                traefik:
+                    enabled: false
+            hosts:
+                - host: jfcs.${DOMAIN_0}
           main:
             enabled: true
             ingressClassName: external
