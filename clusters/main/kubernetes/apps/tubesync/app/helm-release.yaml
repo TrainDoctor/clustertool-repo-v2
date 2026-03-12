@@ -35,8 +35,9 @@ spec:
                         VPN_SERVICE_PROVIDER: mullvad
                         VPN_TYPE: "wireguard"
                         WIREGUARD_PRIVATE_KEY: ${TUBESYNC_VPN_WG_PRIVATE_KEY}
+                        WIREGUARD_PUBLIC_KEY: ${TUBESYNC_VPN_WG_PUBLIC_KEY}
                         WIREGUARD_ADDRESSES: ${TUBESYNC_VPN_ADDRESS}
-                        SERVER_CITIES: "${TUBESYNC_VPN_CITIES}"
+                        # SERVER_CITIES: "${TUBESYNC_VPN_CITIES}"
                         # DNS_ADDRESS: ${TUBESYNC_DNS}
         autodiscovery:
             enabled: true
