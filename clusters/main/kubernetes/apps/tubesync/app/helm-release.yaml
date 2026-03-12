@@ -24,7 +24,7 @@ spec:
             netshoot:
                 enabled: false
             gluetun:
-                enabled: false
+                enabled: true
                 # excludedNetworks_IPv4:
                 #     - "192.168.0.0/24"
                 # excludedNetworks_IPv6: []
