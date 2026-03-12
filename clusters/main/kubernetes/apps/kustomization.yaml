@@ -21,6 +21,6 @@ resources:
   - pc-dashboard/ks.yaml
   - pc-kvm/ks.yaml
   - bazarr/ks.yaml
-  # - tubesync/ks.yaml
+  - tubesync/ks.yaml
   - vaultwarden/ks.yaml
   - prox-kvm/ks.yaml
