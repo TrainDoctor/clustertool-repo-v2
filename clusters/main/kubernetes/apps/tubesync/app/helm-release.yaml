@@ -87,8 +87,8 @@ spec:
         service:
             main:
                 enabled: true
-                sharedKey: custom-shared-key
-                loadBalancerIP: "${SERVICES_IP}"
+                # sharedKey: custom-shared-key
+                loadBalancerIP: 192.168.0.214
                 ports:
                     main:
                         port: 4848
