@@ -47,11 +47,11 @@ spec:
                         VPN_TYPE: "wireguard"
                         VPN_SERVICE_PROVIDER: mullvad
                         WIREGUARD_PRIVATE_KEY: "${QBIT_VPN_WG_PRIVATE_KEY}"
-                        WIREGUARD_PUBLIC_KEY: "${QBIT_VPN_WG_PUBLIC_KEY}"
+                        # WIREGUARD_PUBLIC_KEY: "${QBIT_VPN_WG_PUBLIC_KEY}"
                         WIREGUARD_ADDRESSES: "${QBIT_VPN_ADDRESS}"
-                        SERVER_CITIES: "${QBIT_VPN_CITIES}"
-                        SERVER_COUNTRIES: ${QBIT_VPN_COUNTRIES}
-                        DNS_ADDRESS: ${QBIT_DNS}
+                        # SERVER_CITIES: "${QBIT_VPN_CITIES}"
+                        # SERVER_COUNTRIES: ${QBIT_VPN_COUNTRIES}
+                        # DNS_ADDRESS: ${QBIT_DNS}
                     resources:
                         limits:
                             truecharts.org/tun: 1
