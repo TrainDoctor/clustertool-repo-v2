@@ -36,9 +36,9 @@ spec:
                         VPN_TYPE: "wireguard"
                         WIREGUARD_PRIVATE_KEY: ${TUBESYNC_VPN_WG_PRIVATE_KEY}
                         WIREGUARD_ADDRESSES: ${TUBESYNC_VPN_ADDRESS}
-                        SERVER_COUNTRIES: ${TUBESYNC_VPN_COUNTRIES}
-                        SERVER_CITIES: ${TUBESYNC_VPN_CITIES}
-                        DNS_ADDRESS: ${TUBESYNC_DNS}
+                        # SERVER_COUNTRIES: ${TUBESYNC_VPN_COUNTRIES}
+                        # SERVER_CITIES: ${TUBESYNC_VPN_CITIES}
+                        # DNS_ADDRESS: ${TUBESYNC_DNS}
         autodiscovery:
             enabled: true
         credentials:
