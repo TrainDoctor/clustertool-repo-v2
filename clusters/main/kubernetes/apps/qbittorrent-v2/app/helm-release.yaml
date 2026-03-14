@@ -4,17 +4,17 @@ metadata:
     name: qbittorrent-v2
     namespace: qbittorrent-v2
 spec:
-    postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              version: v1
-              kind: Deployment
-              name: qbittorrent-v2
-            patch: |
-              - op: add
-                path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
-                value: 1
+    # postRenderers:
+    # - kustomize:
+    #     patches:
+    #       - target:
+    #           version: v1
+    #           kind: Deployment
+    #           name: qbittorrent-v2
+    #         patch: |
+    #           - op: add
+    #             path: /spec/template/spec/containers/1/resources/limits/truecharts.org~1tun
+    #             value: 1
     interval: 15m
     chart:
         spec:
@@ -53,8 +53,8 @@ spec:
                         # SERVER_COUNTRIES: ${QBIT_VPN_COUNTRIES}
                         # DNS_ADDRESS: ${QBIT_DNS}
                     resources:
-                        limits:
-                            truecharts.org/tun: 1
+                        # limits:
+                        #     truecharts.org/tun: 1
                         capabilities:
                             add:
                                 - SYS_MODULE
