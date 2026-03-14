@@ -38,7 +38,7 @@ spec:
                         WIREGUARD_ADDRESSES: ${TUBESYNC_VPN_ADDRESS}
                         SERVER_COUNTRIES: ${TUBESYNC_VPN_COUNTRIES}
                         # SERVER_CITIES: ${TUBESYNC_VPN_CITIES}
-                        # DNS_ADDRESS: ${TUBESYNC_DNS}
+                        DNS_ADDRESS: ${TUBESYNC_DNS}
         autodiscovery:
             enabled: true
         credentials:
