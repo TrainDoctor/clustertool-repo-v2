@@ -135,15 +135,6 @@ spec:
             pod:
                 fsGroupChangePolicy: OnRootMismatch
         service:
-            gluetun:
-                enabled: true
-                ports:
-                    gluetun:
-                        enabled: true
-                        port: 8000
-                        protocol: http
-                        targetPort: 8000
-                type: ClusterIP
             main:
                 enabled: true
                 sharedKey: custom-shared-key

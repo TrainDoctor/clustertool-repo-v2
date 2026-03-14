@@ -88,7 +88,7 @@ spec:
             main:
                 enabled: true
                 type: LoadBalancer
-                loadBalancerIP: ${SERVICES_IP}
+                loadBalancerIP: "${SERVICES_IP}"
                 sharedKey: custom-shared-key
                 ports:
                     main:
