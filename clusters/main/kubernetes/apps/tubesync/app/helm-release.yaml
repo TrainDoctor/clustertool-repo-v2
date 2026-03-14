@@ -87,13 +87,14 @@ spec:
         service:
             main:
                 enabled: true
-                # sharedKey: custom-shared-key
-                loadBalancerIP: 192.168.0.214
+                type: LoadBalancer
+                loadBalancerIP: ${SERVICES_IP}
+                sharedKey: custom-shared-key
                 ports:
                     main:
                         port: 4848
                         targetPort: 4848
-                type: LoadBalancer
+                
         updated: true
         workload:
             main:
